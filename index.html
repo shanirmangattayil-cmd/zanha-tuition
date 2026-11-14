@@ -11,57 +11,86 @@
 <title>Zanha Online Tuition</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+Malayalam:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--p:#5b3cc4;--p2:#8b6cf0;--bg:#f5f3fb;--card:#fff;--t:#1f1840;--m:#6d678a;--g:#18a957;--o:#f08c2e;--r:#e04f5f}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Poppins,'Noto Sans Malayalam',sans-serif;background:#ddd8ee;color:var(--t);display:flex;justify-content:center}
-.app{width:100%;max-width:420px;min-height:100vh;background:var(--bg);position:relative;padding-bottom:78px}
-header{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;padding:18px 18px 54px;border-radius:0 0 26px 26px}
-header .row{display:flex;justify-content:space-between;align-items:center}
-.brand{font-weight:700;font-size:18px}.brand small{display:block;font-weight:400;font-size:11px;opacity:.85}
-select.tz{background:rgba(255,255,255,.2);color:#fff;border:0;border-radius:10px;padding:6px 8px;font:inherit;font-size:12px}
+:root{--p:#6a3df0;--p2:#b04ef5;--pk:#ff6fa8;--gold:#ffc65c;--bg:#f6f2ff;--card:#fff;--t:#1d1442;--m:#6f6893;--g:#14b866;--o:#f39a2e;--r:#ef4d6b}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:Poppins,'Noto Sans Malayalam',sans-serif;background:#e9e3fb;color:var(--t);display:flex;justify-content:center}
+.app{width:100%;max-width:430px;min-height:100vh;background:var(--bg);position:relative;padding-bottom:86px;overflow:hidden}
+header{position:relative;background:linear-gradient(150deg,#4b22d6 0%,#8b3cf0 45%,#e05aa8 100%);color:#fff;padding:16px 18px 64px;border-radius:0 0 34px 34px;overflow:hidden}
+header:before,header:after{content:"";position:absolute;border-radius:50%;filter:blur(2px);opacity:.35}
+header:before{width:230px;height:230px;background:radial-gradient(circle,#ffc65c,transparent 70%);top:-80px;right:-70px;animation:float 8s ease-in-out infinite}
+header:after{width:200px;height:200px;background:radial-gradient(circle,#5ee7ff,transparent 70%);bottom:-60px;left:-60px;animation:float 10s ease-in-out infinite reverse}
+@keyframes float{50%{transform:translate(18px,14px) scale(1.08)}}
+.deco{position:absolute;inset:0;pointer-events:none;opacity:.22;font-size:22px}
+.deco span{position:absolute;animation:bob 6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px) rotate(8deg)}}
+header .row{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+.brand{font-weight:700;font-size:18px;letter-spacing:.3px}.brand small{display:block;font-weight:400;font-size:11px;opacity:.85}
+select.tz{background:rgba(255,255,255,.18);backdrop-filter:blur(8px);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:7px 10px;font:inherit;font-size:12px}
 select.tz option{color:#000}
-main{padding:0 16px;margin-top:-40px}
-.card{background:var(--card);border-radius:18px;padding:16px;margin-bottom:14px;box-shadow:0 4px 18px rgba(60,40,140,.08)}
-.hero{text-align:center;margin-top:14px}.hero img{width:132px;height:132px;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:0 8px 24px rgba(0,0,0,.25)}.hero h1{font-size:24px;margin-top:10px}.hero p{font-size:13px;opacity:.9}.hero .tag{background:rgba(255,255,255,.2);color:#fff}.btn.wa{background:#25d366;width:auto;display:inline-block;padding:9px 18px;margin-top:12px;font-size:13px}
-.teacher{display:flex;gap:14px;align-items:center}
-.teacher img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--p2)}
-.teacher h2{font-size:17px}.teacher p{font-size:12px;color:var(--m)}
-.tag{display:inline-block;font-size:11px;background:#efeafe;color:var(--p);padding:3px 8px;border-radius:20px;margin:4px 4px 0 0}
-h3{font-size:15px;margin-bottom:10px}
-.next{background:linear-gradient(135deg,#1f1840,#3b2c80);color:#fff}
-.next .sub{font-size:12px;opacity:.8}.next .time{font-size:22px;font-weight:700;margin:6px 0}
-.btn{display:block;width:100%;border:0;border-radius:12px;padding:12px;font:inherit;font-weight:600;cursor:pointer;background:var(--p);color:#fff;text-align:center;text-decoration:none}
-.btn.g{background:var(--g)}.btn.lite{background:#efeafe;color:var(--p)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.tile{background:var(--card);border-radius:16px;padding:14px;box-shadow:0 4px 14px rgba(60,40,140,.06);cursor:pointer}
-.tile .ic{font-size:24px}.tile b{display:block;font-size:13px;margin-top:6px}.tile span{font-size:11px;color:var(--m)}
-.li{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #eee;gap:10px}
-.li:last-child{border:0}.li b{font-size:13px}.li p{font-size:11px;color:var(--m)}
-.pill{font-size:11px;padding:4px 9px;border-radius:20px;white-space:nowrap;font-weight:600}
-.ok{background:#e1f6ea;color:var(--g)}.due{background:#fde8ea;color:var(--r)}.pen{background:#fff1e3;color:var(--o)}
-.days{display:flex;gap:6px;overflow-x:auto;margin-bottom:12px}
-.day{flex:0 0 auto;padding:8px 13px;border-radius:12px;background:#fff;font-size:12px;cursor:pointer;border:1px solid #e6e1f7}
-.day.on{background:var(--p);color:#fff;border-color:var(--p)}
-label{font-size:12px;color:var(--m);display:block;margin:10px 0 4px}
-input,select.f,textarea{width:100%;padding:11px;border:1px solid #ddd6f3;border-radius:11px;font:inherit;font-size:14px;background:#fff}
-nav{position:fixed;bottom:0;width:100%;max-width:420px;background:#fff;display:flex;justify-content:space-around;padding:8px 0 10px;box-shadow:0 -4px 16px rgba(0,0,0,.06)}
-nav button{background:none;border:0;font:inherit;font-size:10px;color:var(--m);display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer}
-nav button .ic{font-size:20px}nav button.on{color:var(--p);font-weight:600}
+.hero{text-align:center;margin-top:16px;position:relative;z-index:2}
+.ring{width:150px;height:150px;margin:0 auto;border-radius:50%;padding:5px;background:conic-gradient(var(--gold),var(--pk),#5ee7ff,var(--gold));animation:spin 6s linear infinite;box-shadow:0 12px 34px rgba(30,0,80,.45)}
+.ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:4px solid #fff;animation:spin 6s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.badge{display:inline-flex;align-items:center;gap:5px;background:#fff;color:var(--p);font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:-14px;position:relative;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.hero h1{font-size:27px;margin-top:8px;font-weight:700;text-shadow:0 2px 10px rgba(0,0,0,.2)}
+.hero p{font-size:13px;opacity:.92}
+.hero .tag{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(6px)}
+.stats{display:flex;justify-content:center;gap:10px;margin-top:14px}
+.stats div{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:16px;padding:8px 12px;min-width:84px;backdrop-filter:blur(6px)}
+.stats b{display:block;font-size:17px}.stats span{font-size:10px;opacity:.9}
+main{padding:0 16px;margin-top:-44px;position:relative;z-index:3}
+.card{background:var(--card);border-radius:22px;padding:16px;margin-bottom:14px;box-shadow:0 10px 30px rgba(80,40,170,.10);animation:up .5s ease both}
+@keyframes up{from{opacity:0;transform:translateY(14px)}}
+.tag{display:inline-block;font-size:11px;background:#efeafe;color:var(--p);padding:4px 10px;border-radius:20px;margin:6px 3px 0}
+h3{font-size:15px;margin-bottom:12px}
+.next{background:linear-gradient(135deg,#1d1442,#3d2390 60%,#6a3df0);color:#fff;position:relative;overflow:hidden}
+.next:after{content:"🎓";position:absolute;right:-6px;top:-8px;font-size:84px;opacity:.13;transform:rotate(12deg)}
+.next .sub{font-size:12px;opacity:.8}.next .time{font-size:24px;font-weight:700;margin:6px 0}
+.live{display:inline-block;width:8px;height:8px;background:#ff4f7a;border-radius:50%;margin-right:6px;animation:pulse 1.4s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(255,79,122,0)}0%{box-shadow:0 0 0 0 rgba(255,79,122,.6)}}
+.btn{display:block;width:100%;border:0;border-radius:16px;padding:13px;font:inherit;font-weight:600;cursor:pointer;background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;text-align:center;text-decoration:none;box-shadow:0 8px 20px rgba(106,61,240,.3);transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn.g{background:linear-gradient(135deg,#12c46b,#0a9a53);box-shadow:0 8px 20px rgba(20,184,102,.35)}.btn.lite{background:#efeafe;color:var(--p);box-shadow:none}
+.btn.wa{background:#25d366;width:auto;display:inline-flex;align-items:center;gap:6px;padding:10px 20px;margin-top:14px;font-size:13px;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{border-radius:22px;padding:16px 14px;cursor:pointer;color:#fff;position:relative;overflow:hidden;box-shadow:0 10px 22px rgba(60,30,140,.15);transition:transform .15s;animation:up .5s ease both}
+.tile:active{transform:scale(.96)}
+.tile:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;background:rgba(255,255,255,.15);right:-25px;bottom:-25px}
+.tile:nth-child(1){background:linear-gradient(135deg,#6a3df0,#9b6bff)}.tile:nth-child(2){background:linear-gradient(135deg,#ff6fa8,#ff9472)}
+.tile:nth-child(3){background:linear-gradient(135deg,#12b7c4,#3ddc97)}.tile:nth-child(4){background:linear-gradient(135deg,#f7a325,#ffcf5c)}
+.tile .ic{font-size:28px;background:rgba(255,255,255,.22);width:48px;height:48px;border-radius:15px;display:flex;align-items:center;justify-content:center}
+.tile b{display:block;font-size:14px;margin-top:10px}.tile span{font-size:11px;opacity:.9}
+.li{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px dashed #e6e0f7;gap:10px}
+.li:last-child{border:0}.li b{font-size:13px}.li p{font-size:11px;color:var(--m);margin-top:2px}
+.pill{font-size:11px;padding:5px 10px;border-radius:20px;white-space:nowrap;font-weight:600}
+.ok{background:#e1f8ec;color:var(--g)}.due{background:#ffe6ec;color:var(--r)}.pen{background:#fff1e0;color:var(--o)}
+.days{display:flex;gap:7px;overflow-x:auto;margin-bottom:12px;scrollbar-width:none}.days::-webkit-scrollbar{display:none}
+.day{flex:0 0 auto;padding:8px 14px;border-radius:14px;background:#f3effe;font-size:12px;cursor:pointer;color:var(--m);transition:.2s}
+.day.on{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;box-shadow:0 6px 14px rgba(106,61,240,.3)}
+label{font-size:12px;color:var(--m);display:block;margin:12px 0 5px}
+input,select.f,textarea{width:100%;padding:12px;border:1.5px solid #e4ddf8;border-radius:14px;font:inherit;font-size:14px;background:#fbfaff;outline:none;transition:.2s}
+input:focus,select.f:focus{border-color:var(--p);background:#fff}
+nav{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);width:calc(100% - 24px);max-width:406px;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);display:flex;justify-content:space-around;padding:8px 4px;border-radius:24px;box-shadow:0 10px 30px rgba(60,30,140,.18);z-index:5}
+nav button{background:none;border:0;font:inherit;font-size:10px;color:var(--m);display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:4px 8px;border-radius:14px;transition:.2s}
+nav button .ic{font-size:20px}nav button.on{color:var(--p);font-weight:700;background:#efeafe}
 .view{display:none}.view.on{display:block}
-.big{font-size:26px;font-weight:700}
-.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#1f1840;color:#fff;padding:10px 16px;border-radius:12px;font-size:13px;opacity:0;transition:.3s;pointer-events:none;max-width:90%}
+.big{font-size:28px;font-weight:700}
+.toast{position:fixed;left:50%;bottom:100px;transform:translateX(-50%);background:#1d1442;color:#fff;padding:11px 18px;border-radius:14px;font-size:13px;opacity:0;transition:.3s;pointer-events:none;max-width:90%;z-index:20}
 .toast.show{opacity:1}
 .letters{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
-.letters div{background:#efeafe;border-radius:12px;text-align:center;padding:10px 0;font-size:22px;font-weight:700;color:var(--p);cursor:pointer}
+.letters div{background:linear-gradient(135deg,#f3eeff,#ffeef6);border-radius:14px;text-align:center;padding:10px 0;font-size:22px;font-weight:700;color:var(--p);cursor:pointer;transition:.15s}
+.letters div:active{transform:scale(.9);background:var(--p);color:#fff}
 .letters div small{display:block;font-size:10px;color:var(--m);font-weight:400}
-.bar{height:8px;background:#eee;border-radius:8px;overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;background:var(--g)}
-.vcard{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #eee;cursor:pointer}
-.vcard .th{width:110px;height:62px;border-radius:10px;background:#5b3cc4 center/cover;position:relative;flex:0 0 auto}
+.bar{height:9px;background:#efeafe;border-radius:9px;overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;background:linear-gradient(90deg,#12c46b,#7be495);border-radius:9px}
+.vcard{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed #e6e0f7;cursor:pointer}
+.vcard .th{width:116px;height:66px;border-radius:14px;background:linear-gradient(135deg,#6a3df0,#ff6fa8) center/cover;position:relative;flex:0 0 auto;box-shadow:0 6px 14px rgba(60,30,140,.2)}
 .vcard .th:after{content:"▶";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;text-shadow:0 2px 6px #0006}
 .vcard b{font-size:13px}.vcard p{font-size:11px;color:var(--m)}
-.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;z-index:9;padding:14px}.modal.on{display:flex}
-.mbox{background:#fff;border-radius:16px;overflow:hidden;width:100%;max-width:400px}.mbox video{width:100%;background:#000;display:block}
-.k1{background:#e6f0ff;color:#2a62d6}.k2{background:#fff1e3;color:var(--o)}
+.modal{position:fixed;inset:0;background:#0009;backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:9;padding:14px}.modal.on{display:flex}
+.mbox{background:#fff;border-radius:22px;overflow:hidden;width:100%;max-width:400px}.mbox video{width:100%;background:#000;display:block}
+.k1{background:#e6f0ff;color:#2a62d6}.k2{background:#fff1e0;color:var(--o)}
+.app.sub .hero .tag,.app.sub .stats,.app.sub .hero .btn.wa,.app.sub .hero p,.app.sub .badge,.app.sub .deco{display:none}
+.app.sub .ring{width:84px;height:84px}.app.sub .hero h1{font-size:20px}.app.sub header{padding-bottom:56px}
 </style>
 </head>
 <body>
@@ -77,12 +106,16 @@ nav button .ic{font-size:20px}nav button.on{color:var(--p);font-weight:600}
    <option value="Asia/Kuwait">🇰🇼 Kuwait</option>
   </select>
  </div>
+ <div class="deco"><span style="left:8%;top:30%">📚</span><span style="right:10%;top:38%;animation-delay:1s">✏️</span><span style="left:14%;top:62%;animation-delay:2s">⭐</span><span style="right:16%;top:66%;animation-delay:3s">🅰️</span><span style="left:46%;top:14%;animation-delay:1.5s">✨</span></div>
  <div class="hero">
-  <img src="zanha.jpg" alt="Zanha Zakhariya">
+  <div class="ring"><img src="zanha.jpg" alt="Zanha Zakhariya"></div>
+  <div class="badge">✔ Verified Tutor</div>
   <h1>Zanha Zakhariya</h1>
   <p>നിങ്ങളുടെ ട്യൂഷൻ ടീച്ചർ · Your Online Tutor</p>
-  <div><span class="tag">8th – 10th Tuition</span><span class="tag">Spoken Malayalam</span><span class="tag">🌍 India & Gulf</span></div>
-  <a class="btn wa" href="https://wa.me/910000000000">💬 WhatsApp Teacher</a>
+  <div><span class="tag">⭐ 8th – 10th Science</span><span class="tag">English</span><span class="tag">മലയാളം</span><span class="tag">🌍 India & Gulf</span></div>
+  <div class="stats"><div><b>👤 + 👥</b><span>Single & Group</span></div><div><b id="subCount">3</b><span>Subjects</span></div><div><b>🇮🇳🇦🇪🇸🇦🇶🇦</b><span>Countries</span></div></div>
+  <a class="btn wa" href="https://wa.me/918714499392?text=Hi%20Zanha%20teacher%2C%20I%20want%20to%20know%20about%20tuition">💬 WhatsApp Teacher</a>
+  <p style="font-size:11px;opacity:.85;margin-top:6px">📞 +91 87144 99392</p>
  </div>
 </header>
 <main>
@@ -90,7 +123,7 @@ nav button .ic{font-size:20px}nav button.on{color:var(--p);font-weight:600}
 <!-- HOME -->
 <section class="view on" id="v-home">
  <div class="card next">
-  <div class="sub">അടുത്ത ക്ലാസ് · Next class</div>
+  <div class="sub"><span class="live"></span>അടുത്ത ക്ലാസ് · Next class</div>
   <div class="time" id="nextTime"></div>
   <div class="sub" id="nextName"></div>
   <div style="height:12px"></div>
@@ -100,13 +133,14 @@ nav button .ic{font-size:20px}nav button.on{color:var(--p);font-weight:600}
   <div class="tile" onclick="go('time')"><div class="ic">🗓️</div><b>ക്ലാസുകൾ</b><span>One-to-One & Group</span></div>
   <div class="tile" onclick="go('vid')"><div class="ic">🎬</div><b>ക്ലാസ് വീഡിയോ</b><span>Class videos</span></div>
   <div class="tile" onclick="go('hw')"><div class="ic">📝</div><b>ഹോംവർക്ക്</b><span>2 pending</span></div>
-  <div class="tile" onclick="go('courses')"><div class="ic">🅰️</div><b>മലയാളം പഠിക്കാം</b><span>Learn letters</span></div>
+  <div class="tile" onclick="go('courses')"><div class="ic">🅰️</div><b>വിഷയങ്ങൾ</b><span>Subjects & മലയാളം അക്ഷരം</span></div>
  </div>
  <div style="height:14px"></div>
+ <div class="card"><h3>📘 വിഷയങ്ങൾ · Subjects <span style="float:right;font-size:12px;color:var(--p);cursor:pointer" onclick="go('courses')">＋ Add / Edit</span></h3><div id="subChips"></div></div>
  <div class="card">
   <h3>📈 Progress · പുരോഗതി</h3>
   <div class="li"><div><b>ഹാജർ · Attendance</b><div class="bar" style="width:180px"><i style="width:92%"></i></div></div><b>92%</b></div>
-  <div class="li"><div><b>അവസാന ടെസ്റ്റ് · Last test</b><p>മലയാളം വ്യാകരണം</p></div><b>18/20</b></div>
+  <div class="li"><div><b>അവസാന ടെസ്റ്റ് · Last test</b><p>Science – Cell Biology</p></div><b>18/20</b></div>
  </div>
  <button class="btn lite" onclick="go('join')">＋ പുതിയ അഡ്മിഷൻ · New Admission</button>
 </section>
@@ -130,8 +164,8 @@ nav button .ic{font-size:20px}nav button.on{color:var(--p);font-weight:600}
   <div id="vlist"></div>
  </div>
  <div class="card"><h3>⬆️ ടീച്ചർ: വീഡിയോ അപ്‌ലോഡ് · Teacher upload</h3>
-  <label>വിഷയം / ടോപ്പിക് · Title</label><input id="vt" placeholder="ഉദാ: 10th Maths – Chapter 3">
-  <label>വിഷയം · Subject</label><select class="f" id="vs"><option>മലയാളം</option><option>Maths</option><option>Science</option><option>English</option><option>Spoken Malayalam</option></select>
+  <label>വിഷയം / ടോപ്പിക് · Title</label><input id="vt" placeholder="ഉദാ: 10th Science – Chapter 3">
+  <label>വിഷയം · Subject</label><select class="f subSel" id="vs"></select>
   <label>വീഡിയോ ഫയൽ · Video file</label><input type="file" accept="video/*" id="vf">
   <div style="height:12px"></div><button class="btn" onclick="upVid()">അപ്‌ലോഡ് · Upload</button>
  </div>
@@ -139,10 +173,11 @@ nav button .ic{font-size:20px}nav button.on{color:var(--p);font-weight:600}
 
 <!-- COURSES -->
 <section class="view" id="v-courses">
- <div class="card"><h3>📘 കോഴ്സുകൾ · Courses</h3>
-  <div class="li"><div><b>8th – 10th ട്യൂഷൻ</b><p>One-to-One / Group · Maths · Science · English · മലയാളം</p></div><span class="pill ok">Open</span></div>
-  <div class="li"><div><b>Spoken Malayalam</b><p>ബാംഗ്ലൂർ / ഗൾഫ് കുട്ടികൾക്ക്</p></div><span class="pill ok">Batch open</span></div>
-  <div class="li"><div><b>Malayalam അക്ഷരം (Beginners)</b><p>അക്ഷരം മുതൽ വായന വരെ</p></div><span class="pill pen">Few seats</span></div>
+ <div class="card"><h3>📘 വിഷയങ്ങൾ · Subjects</h3>
+  <div id="subList"></div>
+  <label>പുതിയ വിഷയം ചേർക്കുക · Add a subject</label>
+  <div style="display:flex;gap:8px"><input id="newSub" placeholder="ഉദാ: Physics, Hindi, Chemistry…"><button class="btn" style="width:auto;padding:0 18px" onclick="addSub()">＋</button></div>
+  <label style="display:flex;align-items:center;gap:8px;margin-top:10px"><input type="checkbox" id="newMain" style="width:auto"> ⭐ പ്രധാന വിഷയം · Main subject</label>
  </div>
  <div class="card"><h3>🅰️ അക്ഷരം പഠിക്കാം · Tap a letter</h3>
   <div class="letters" id="letters"></div>
@@ -153,8 +188,8 @@ nav button .ic{font-size:20px}nav button.on{color:var(--p);font-weight:600}
 <section class="view" id="v-hw">
  <div class="card"><h3>📝 ഹോംവർക്ക് · Homework</h3>
   <div class="li"><div><b>മലയാളം – ഉപന്യാസം</b><p>"എൻ്റെ വീട്" · Due Tue</p></div><span class="pill due">Pending</span></div>
-  <div class="li"><div><b>Maths – Ex 4.2</b><p>Q1 – Q10 · Due Wed</p></div><span class="pill due">Pending</span></div>
-  <div class="li"><div><b>Science – Notes</b><p>Light chapter</p></div><span class="pill ok">✔ 9/10</span></div>
+  <div class="li"><div><b>Science – Ch 2 Questions</b><p>Acids, Bases & Salts · Due Wed</p></div><span class="pill due">Pending</span></div>
+  <div class="li"><div><b>English – Essay</b><p>My School</p></div><span class="pill ok">✔ 9/10</span></div>
   <label>ഫോട്ടോ അപ്‌ലോഡ് ചെയ്യുക · Upload your work</label>
   <input type="file" accept="image/*,application/pdf" onchange="toast('അപ്‌ലോഡ് ചെയ്തു ✔ Sent to teacher')">
  </div>
@@ -187,7 +222,7 @@ nav button .ic{font-size:20px}nav button.on{color:var(--p);font-weight:600}
    <label>ക്ലാസ് · Class</label>
    <select class="f"><option>8th</option><option>9th</option><option>10th</option><option>Spoken Malayalam (any age)</option></select>
    <label>വിഷയം · Subject</label>
-   <select class="f"><option>മലയാളം</option><option>Maths</option><option>Science</option><option>English</option></select>
+   <select class="f subSel"></select>
    <label>സ്ഥലം · Country / City</label><input placeholder="Dubai / Bangalore…">
    <label>WhatsApp നമ്പർ</label><input type="tel" placeholder="+971 …" required>
    <div style="height:14px"></div><button class="btn">അപേക്ഷിക്കുക · Submit</button>
@@ -210,10 +245,10 @@ nav button .ic{font-size:20px}nav button.on{color:var(--p);font-weight:600}
 <script>
 // Class schedule in IST: [hour, minute, title, type(1=one-to-one,2=group), who, country, subject]
 const S={
-Mon:[[17,0,'Ameen (10th)',1,'Maths','🇦🇪 Dubai'],[18,30,'10th Group A',2,'Science','6 students · 🇮🇳🇦🇪'],[20,0,'Spoken Malayalam Batch',2,'Spoken Malayalam','8 students · Gulf']],
-Tue:[[16,30,'Diya (8th)',1,'മലയാളം','🇮🇳 Bangalore'],[18,0,'8th Group',2,'മലയാളം','5 students · 🇮🇳'],[20,30,'Riya (beginner)',1,'അക്ഷരം','🇶🇦 Doha']],
-Wed:[[17,0,'Ameen (10th)',1,'Maths','🇦🇪 Dubai'],[18,30,'10th Group A',2,'Maths','6 students · 🇮🇳🇦🇪'],[20,0,'Spoken Malayalam Batch',2,'Spoken Malayalam','8 students · Gulf']],
-Thu:[[16,30,'Fathima (9th)',1,'English','🇸🇦 Riyadh'],[18,0,'8th Group',2,'English','5 students · 🇮🇳'],[20,30,'Riya (beginner)',1,'അക്ഷരം','🇶🇦 Doha']],
+Mon:[[17,0,'Ameen (10th)',1,'Science','🇦🇪 Dubai'],[18,30,'10th Group A',2,'Science','6 students · 🇮🇳🇦🇪'],[20,0,'Spoken Malayalam Batch',2,'Spoken Malayalam','8 students · Gulf']],
+Tue:[[16,30,'Diya (8th)',1,'മലയാളം','🇮🇳 Bangalore'],[18,0,'8th Group',2,'Science','5 students · 🇮🇳'],[20,30,'Riya (beginner)',1,'അക്ഷരം','🇶🇦 Doha']],
+Wed:[[17,0,'Ameen (10th)',1,'Science','🇦🇪 Dubai'],[18,30,'10th Group A',2,'Science','6 students · 🇮🇳🇦🇪'],[20,0,'Spoken Malayalam Batch',2,'Spoken Malayalam','8 students · Gulf']],
+Thu:[[16,30,'Fathima (9th)',1,'Science','🇸🇦 Riyadh'],[18,0,'8th Group',2,'English','5 students · 🇮🇳'],[20,30,'Riya (beginner)',1,'അക്ഷരം','🇶🇦 Doha']],
 Fri:[[19,0,'10th Group A',2,'മലയാളം','6 students · 🇮🇳🇦🇪']],
 Sat:[[10,0,'Spoken Malayalam – Bangalore',2,'Spoken Malayalam','7 students · 🇮🇳'],[15,0,'Fathima (9th)',1,'Science','🇸🇦 Riyadh'],[17,0,'Weekly Test',2,'All','All groups']],
 Sun:[[11,0,'Doubt Clearing',2,'All','Open for all']]};
@@ -231,7 +266,7 @@ function render(){
 }
 // Class videos
 let V=[{t:'അക്ഷരം പഠിക്കാം – Lesson 1',s:'മലയാളം',d:'Beginners · 6 min',src:'videos/v1.mp4',th:'videos/t1.jpg'},
-{t:'10th Maths – Quadratic Equations',s:'Maths',d:'10th · Chapter 4',src:'videos/v2.mp4',th:'videos/t2.jpg'},
+{t:'10th Science – Light & Reflection',s:'Science',d:'10th · Physics',src:'videos/v2.mp4',th:'videos/t2.jpg'},
 {t:'Spoken Malayalam – Greetings',s:'Spoken Malayalam',d:'Gulf batch · Lesson 2',src:'videos/v3.mp4',th:'videos/t3.jpg'}];
 let vsub='All';
 function vids(){const subs=['All',...new Set(V.map(v=>v.s))];
@@ -243,10 +278,24 @@ function closeV(){const p=document.getElementById('player');p.pause();document.g
 function upVid(){const f=document.getElementById('vf').files[0],t=document.getElementById('vt').value.trim();if(!f||!t){toast('ടൈറ്റിലും വീഡിയോയും തിരഞ്ഞെടുക്കുക');return}
  V.unshift({t,s:document.getElementById('vs').value,d:'Just uploaded',src:URL.createObjectURL(f),th:''});vsub='All';vids();toast('✔ വീഡിയോ ചേർത്തു (ഡെമോ)');document.getElementById('vt').value='';document.getElementById('vf').value=''}
 vids();
+// Subjects (teacher can add any number)
+const DEF=[{n:'Science',m:1,d:'8th – 10th · Physics, Chemistry, Biology'},{n:'English',m:0,d:'Secondary'},{n:'മലയാളം',m:0,d:'Secondary · Spoken Malayalam for Gulf & Bangalore kids'}];
+let SUB;try{SUB=JSON.parse(localStorage.getItem('zSubs'))||DEF}catch(e){SUB=DEF}
+function saveSub(){try{localStorage.setItem('zSubs',JSON.stringify(SUB))}catch(e){}subs()}
+function subs(){const o=[...SUB].sort((a,b)=>b.m-a.m);
+ document.getElementById('subChips').innerHTML=o.map(x=>`<span class="tag" style="${x.m?'background:linear-gradient(135deg,#6a3df0,#b04ef5);color:#fff;font-weight:600':''}">${x.m?'⭐ ':''}${x.n}</span>`).join('');
+ document.getElementById('subList').innerHTML=o.map(x=>`<div class="li"><div><b>${x.m?'⭐ ':''}${x.n}</b><p>${x.d||(x.m?'Main subject':'Secondary')}</p></div><span class="pill ${x.m?'ok':'pen'}" style="cursor:pointer" onclick="togSub('${x.n}')">${x.m?'Main':'Secondary'}</span><span style="cursor:pointer;color:var(--r);font-size:16px" onclick="delSub('${x.n}')">✕</span></div>`).join('');
+ document.querySelectorAll('.subSel').forEach(sl=>sl.innerHTML=o.map(x=>`<option>${x.n}</option>`).join(''));
+ document.getElementById('subCount').textContent=SUB.length}
+function addSub(){const n=document.getElementById('newSub').value.trim();if(!n)return;if(SUB.some(x=>x.n.toLowerCase()==n.toLowerCase())){toast('ഈ വിഷയം ഉണ്ട്');return}
+ SUB.push({n,m:document.getElementById('newMain').checked?1:0});document.getElementById('newSub').value='';saveSub();toast('✔ '+n+' ചേർത്തു')}
+function togSub(n){const x=SUB.find(x=>x.n==n);x.m=x.m?0:1;saveSub()}
+function delSub(n){if(SUB.length<2)return;SUB=SUB.filter(x=>x.n!=n);saveSub();toast(n+' നീക്കി')}
+subs();
 const L=[['അ','a'],['ആ','aa'],['ഇ','i'],['ഈ','ee'],['ഉ','u'],['ഊ','oo'],['എ','e'],['ഏ','ae'],['ഐ','ai'],['ഒ','o'],['ഓ','oa'],['ഔ','au'],['ക','ka'],['ഖ','kha'],['ഗ','ga'],['ച','cha'],['ട','ta'],['ത','tha'],['പ','pa'],['മ','ma'],['യ','ya'],['ര','ra'],['ല','la'],['വ','va']];
 document.getElementById('letters').innerHTML=L.map(([a,b])=>`<div onclick="say('${a}','${b}')">${a}<small>${b}</small></div>`).join('');
 function say(a,b){toast(a+' = "'+b+'"');try{const u=new SpeechSynthesisUtterance(a);u.lang='ml-IN';speechSynthesis.speak(u)}catch(e){}}
-function go(v){document.querySelectorAll('.view').forEach(x=>x.classList.toggle('on',x.id=='v-'+v));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v==v));scrollTo(0,0)}
+function go(v){document.querySelector('.app').classList.toggle('sub',v!='home');document.querySelectorAll('.view').forEach(x=>x.classList.toggle('on',x.id=='v-'+v));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v==v));scrollTo(0,0)}
 let tt;function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2200)}
 render();
 if('serviceWorker' in navigator && location.hostname.endsWith('github.io')){navigator.serviceWorker.register('sw.js').then(r=>{r.update();r.onupdatefound=()=>{const w=r.installing;w.onstatechange=()=>{if(w.state==='installed'&&navigator.serviceWorker.controller){toast('🔄 പുതിയ അപ്ഡേറ്റ് · Updating…');setTimeout(()=>location.reload(),1500)}}}}).catch(()=>{})}
