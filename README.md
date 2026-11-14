@@ -1,4 +1,4 @@
-# Padippura Online Tuition — Zanha Zakhariya
+# Zanha Online Tuition — Zanha Zakhariya
 
 Online tuition app: 8th–10th tuition + Spoken Malayalam for kids in India & the Gulf.
 
