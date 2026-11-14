@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#5b3cc4">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Padippura">
+<title>Padippura Online Tuition</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+Malayalam:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--p:#5b3cc4;--p2:#8b6cf0;--bg:#f5f3fb;--card:#fff;--t:#1f1840;--m:#6d678a;--g:#18a957;--o:#f08c2e;--r:#e04f5f}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,'Noto Sans Malayalam',sans-serif;background:#ddd8ee;color:var(--t);display:flex;justify-content:center}
+.app{width:100%;max-width:420px;min-height:100vh;background:var(--bg);position:relative;padding-bottom:78px}
+header{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;padding:18px 18px 54px;border-radius:0 0 26px 26px}
+header .row{display:flex;justify-content:space-between;align-items:center}
+.brand{font-weight:700;font-size:18px}.brand small{display:block;font-weight:400;font-size:11px;opacity:.85}
+select.tz{background:rgba(255,255,255,.2);color:#fff;border:0;border-radius:10px;padding:6px 8px;font:inherit;font-size:12px}
+select.tz option{color:#000}
+main{padding:0 16px;margin-top:-40px}
+.card{background:var(--card);border-radius:18px;padding:16px;margin-bottom:14px;box-shadow:0 4px 18px rgba(60,40,140,.08)}
+.hero{text-align:center;margin-top:14px}.hero img{width:132px;height:132px;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:0 8px 24px rgba(0,0,0,.25)}.hero h1{font-size:24px;margin-top:10px}.hero p{font-size:13px;opacity:.9}.hero .tag{background:rgba(255,255,255,.2);color:#fff}.btn.wa{background:#25d366;width:auto;display:inline-block;padding:9px 18px;margin-top:12px;font-size:13px}
+.teacher{display:flex;gap:14px;align-items:center}
+.teacher img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--p2)}
+.teacher h2{font-size:17px}.teacher p{font-size:12px;color:var(--m)}
+.tag{display:inline-block;font-size:11px;background:#efeafe;color:var(--p);padding:3px 8px;border-radius:20px;margin:4px 4px 0 0}
+h3{font-size:15px;margin-bottom:10px}
+.next{background:linear-gradient(135deg,#1f1840,#3b2c80);color:#fff}
+.next .sub{font-size:12px;opacity:.8}.next .time{font-size:22px;font-weight:700;margin:6px 0}
+.btn{display:block;width:100%;border:0;border-radius:12px;padding:12px;font:inherit;font-weight:600;cursor:pointer;background:var(--p);color:#fff;text-align:center;text-decoration:none}
+.btn.g{background:var(--g)}.btn.lite{background:#efeafe;color:var(--p)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{background:var(--card);border-radius:16px;padding:14px;box-shadow:0 4px 14px rgba(60,40,140,.06);cursor:pointer}
+.tile .ic{font-size:24px}.tile b{display:block;font-size:13px;margin-top:6px}.tile span{font-size:11px;color:var(--m)}
+.li{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #eee;gap:10px}
+.li:last-child{border:0}.li b{font-size:13px}.li p{font-size:11px;color:var(--m)}
+.pill{font-size:11px;padding:4px 9px;border-radius:20px;white-space:nowrap;font-weight:600}
+.ok{background:#e1f6ea;color:var(--g)}.due{background:#fde8ea;color:var(--r)}.pen{background:#fff1e3;color:var(--o)}
+.days{display:flex;gap:6px;overflow-x:auto;margin-bottom:12px}
+.day{flex:0 0 auto;padding:8px 13px;border-radius:12px;background:#fff;font-size:12px;cursor:pointer;border:1px solid #e6e1f7}
+.day.on{background:var(--p);color:#fff;border-color:var(--p)}
+label{font-size:12px;color:var(--m);display:block;margin:10px 0 4px}
+input,select.f,textarea{width:100%;padding:11px;border:1px solid #ddd6f3;border-radius:11px;font:inherit;font-size:14px;background:#fff}
+nav{position:fixed;bottom:0;width:100%;max-width:420px;background:#fff;display:flex;justify-content:space-around;padding:8px 0 10px;box-shadow:0 -4px 16px rgba(0,0,0,.06)}
+nav button{background:none;border:0;font:inherit;font-size:10px;color:var(--m);display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer}
+nav button .ic{font-size:20px}nav button.on{color:var(--p);font-weight:600}
+.view{display:none}.view.on{display:block}
+.big{font-size:26px;font-weight:700}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#1f1840;color:#fff;padding:10px 16px;border-radius:12px;font-size:13px;opacity:0;transition:.3s;pointer-events:none;max-width:90%}
+.toast.show{opacity:1}
+.letters{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.letters div{background:#efeafe;border-radius:12px;text-align:center;padding:10px 0;font-size:22px;font-weight:700;color:var(--p);cursor:pointer}
+.letters div small{display:block;font-size:10px;color:var(--m);font-weight:400}
+.bar{height:8px;background:#eee;border-radius:8px;overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;background:var(--g)}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+ <div class="row">
+  <div class="brand">📚 Padippura<small>Online Tuition · ഓൺലൈൻ ട്യൂഷൻ</small></div>
+  <select class="tz" id="tz" onchange="render()">
+   <option value="Asia/Kolkata">🇮🇳 India</option>
+   <option value="Asia/Dubai">🇦🇪 UAE</option>
+   <option value="Asia/Riyadh">🇸🇦 Saudi</option>
+   <option value="Asia/Qatar">🇶🇦 Qatar</option>
+   <option value="Asia/Kuwait">🇰🇼 Kuwait</option>
+  </select>
+ </div>
+ <div class="hero">
+  <img src="zanha.jpg" alt="Zanha Zakhariya">
+  <h1>Zanha Zakhariya</h1>
+  <p>നിങ്ങളുടെ ട്യൂഷൻ ടീച്ചർ · Your Online Tutor</p>
+  <div><span class="tag">8th – 10th Tuition</span><span class="tag">Spoken Malayalam</span><span class="tag">🌍 India & Gulf</span></div>
+  <a class="btn wa" href="https://wa.me/910000000000">💬 WhatsApp Teacher</a>
+ </div>
+</header>
+<main>
+
+<!-- HOME -->
+<section class="view on" id="v-home">
+ <div class="card next">
+  <div class="sub">അടുത്ത ക്ലാസ് · Next class</div>
+  <div class="time" id="nextTime"></div>
+  <div class="sub" id="nextName"></div>
+  <div style="height:12px"></div>
+  <a class="btn g" href="https://meet.google.com" onclick="toast('ഹാജർ രേഖപ്പെടുത്തി ✔ Attendance marked')">▶ Join Class</a>
+ </div>
+ <div class="grid">
+  <div class="tile" onclick="go('time')"><div class="ic">🗓️</div><b>ടൈംടേബിൾ</b><span>Timetable</span></div>
+  <div class="tile" onclick="go('hw')"><div class="ic">📝</div><b>ഹോംവർക്ക്</b><span>2 pending</span></div>
+  <div class="tile" onclick="go('courses')"><div class="ic">🅰️</div><b>മലയാളം പഠിക്കാം</b><span>Learn letters</span></div>
+  <div class="tile" onclick="go('fees')"><div class="ic">💳</div><b>ഫീസ്</b><span>Fees</span></div>
+ </div>
+ <div style="height:14px"></div>
+ <div class="card">
+  <h3>📈 Progress · പുരോഗതി</h3>
+  <div class="li"><div><b>ഹാജർ · Attendance</b><div class="bar" style="width:180px"><i style="width:92%"></i></div></div><b>92%</b></div>
+  <div class="li"><div><b>അവസാന ടെസ്റ്റ് · Last test</b><p>മലയാളം വ്യാകരണം</p></div><b>18/20</b></div>
+ </div>
+ <button class="btn lite" onclick="go('join')">＋ പുതിയ അഡ്മിഷൻ · New Admission</button>
+</section>
+
+<!-- TIMETABLE -->
+<section class="view" id="v-time">
+ <div class="card"><h3>🗓️ ടൈംടേബിൾ · Timetable</h3>
+  <div class="days" id="days"></div>
+  <div id="slots"></div>
+  <p style="font-size:11px;color:var(--m);margin-top:8px">⏰ സമയം നിങ്ങളുടെ രാജ്യത്തിലേതാണ് (മുകളിൽ മാറ്റാം)</p>
+ </div>
+</section>
+
+<!-- COURSES -->
+<section class="view" id="v-courses">
+ <div class="card"><h3>📘 കോഴ്സുകൾ · Courses</h3>
+  <div class="li"><div><b>8th – 10th ട്യൂഷൻ</b><p>Maths · Science · English · മലയാളം</p></div><span class="pill ok">Batch open</span></div>
+  <div class="li"><div><b>Spoken Malayalam</b><p>ബാംഗ്ലൂർ / ഗൾഫ് കുട്ടികൾക്ക്</p></div><span class="pill ok">Batch open</span></div>
+  <div class="li"><div><b>Malayalam അക്ഷരം (Beginners)</b><p>അക്ഷരം മുതൽ വായന വരെ</p></div><span class="pill pen">Few seats</span></div>
+ </div>
+ <div class="card"><h3>🅰️ അക്ഷരം പഠിക്കാം · Tap a letter</h3>
+  <div class="letters" id="letters"></div>
+ </div>
+</section>
+
+<!-- HOMEWORK -->
+<section class="view" id="v-hw">
+ <div class="card"><h3>📝 ഹോംവർക്ക് · Homework</h3>
+  <div class="li"><div><b>മലയാളം – ഉപന്യാസം</b><p>"എൻ്റെ വീട്" · Due Tue</p></div><span class="pill due">Pending</span></div>
+  <div class="li"><div><b>Maths – Ex 4.2</b><p>Q1 – Q10 · Due Wed</p></div><span class="pill due">Pending</span></div>
+  <div class="li"><div><b>Science – Notes</b><p>Light chapter</p></div><span class="pill ok">✔ 9/10</span></div>
+  <label>ഫോട്ടോ അപ്‌ലോഡ് ചെയ്യുക · Upload your work</label>
+  <input type="file" accept="image/*,application/pdf" onchange="toast('അപ്‌ലോഡ് ചെയ്തു ✔ Sent to teacher')">
+ </div>
+ <div class="card"><h3>📂 നോട്ട്സ് · Notes & Recordings</h3>
+  <div class="li"><div><b>🎥 Class recording – Mon</b><p>മിസ്സായ ക്ലാസ് കാണാം</p></div><span class="pill ok">Watch</span></div>
+  <div class="li"><div><b>📄 Malayalam Grammar.pdf</b><p>സന്ധി, സമാസം</p></div><span class="pill ok">Open</span></div>
+ </div>
+</section>
+
+<!-- FEES -->
+<section class="view" id="v-fees">
+ <div class="card"><h3>💳 ഫീസ് · Fees</h3>
+  <p style="font-size:12px;color:var(--m)">ഈ മാസം · This month</p>
+  <div class="big">₹1,500 <span class="pill due" style="vertical-align:middle">Due 10 Dec</span></div>
+  <div style="height:12px"></div>
+  <a class="btn" href="upi://pay?pa=zanha@upi&pn=Padippura&am=1500&cu=INR">UPI വഴി അടയ്ക്കുക · Pay by UPI</a>
+  <p style="font-size:11px;color:var(--m);margin-top:8px">UPI ID: zanha@upi (ഡെമോ) · ഗൾഫിൽ നിന്ന് ബാങ്ക് ട്രാൻസ്ഫറും ചെയ്യാം</p>
+ </div>
+ <div class="card"><h3>History</h3>
+  <div class="li"><div><b>November</b><p>Paid 05 Nov</p></div><span class="pill ok">✔ ₹1,500</span></div>
+  <div class="li"><div><b>October</b><p>Paid 03 Oct</p></div><span class="pill ok">✔ ₹1,500</span></div>
+ </div>
+</section>
+
+<!-- JOIN -->
+<section class="view" id="v-join">
+ <div class="card"><h3>＋ അഡ്മിഷൻ · Admission</h3>
+  <form onsubmit="event.preventDefault();toast('അപേക്ഷ കിട്ടി ✔ Zanha teacher will contact you');this.reset()">
+   <label>കുട്ടിയുടെ പേര് · Student name</label><input required>
+   <label>ക്ലാസ് · Class</label>
+   <select class="f"><option>8th</option><option>9th</option><option>10th</option><option>Spoken Malayalam (any age)</option></select>
+   <label>വിഷയം · Subject</label>
+   <select class="f"><option>മലയാളം</option><option>Maths</option><option>Science</option><option>English</option></select>
+   <label>സ്ഥലം · Country / City</label><input placeholder="Dubai / Bangalore…">
+   <label>WhatsApp നമ്പർ</label><input type="tel" placeholder="+971 …" required>
+   <div style="height:14px"></div><button class="btn">അപേക്ഷിക്കുക · Submit</button>
+  </form>
+ </div>
+</section>
+
+</main>
+<nav>
+ <button class="on" data-v="home" onclick="go('home')"><span class="ic">🏠</span>Home</button>
+ <button data-v="time" onclick="go('time')"><span class="ic">🗓️</span>Timetable</button>
+ <button data-v="hw" onclick="go('hw')"><span class="ic">📝</span>Homework</button>
+ <button data-v="fees" onclick="go('fees')"><span class="ic">💳</span>Fees</button>
+ <button data-v="join" onclick="go('join')"><span class="ic">＋</span>Admission</button>
+</nav>
+<div class="toast" id="toast"></div>
+</div>
+<script>
+// Class schedule in IST (hour, minute)
+const S={Mon:[[18,0,'10th – Maths'],[20,0,'Spoken Malayalam (Gulf)']],Tue:[[18,0,'8th – മലയാളം'],[20,30,'അക്ഷരം Beginners']],Wed:[[18,0,'10th – Science'],[20,0,'Spoken Malayalam (Gulf)']],Thu:[[18,0,'9th – English'],[20,30,'അക്ഷരം Beginners']],Fri:[[19,0,'10th – മലയാളം']],Sat:[[10,0,'Spoken Malayalam (Bangalore)'],[17,0,'Weekly Test']],Sun:[[11,0,'Doubt Clearing']]};
+const days=Object.keys(S);let sel=days[(new Date().getDay()+6)%7];
+function fmt(h,m){const d=new Date(Date.UTC(2026,0,5,h,m)-330*60000);return d.toLocaleTimeString('en-IN',{hour:'numeric',minute:'2-digit',timeZone:document.getElementById('tz').value})}
+function render(){
+ document.getElementById('days').innerHTML=days.map(d=>`<div class="day ${d==sel?'on':''}" onclick="sel='${d}';render()">${d}</div>`).join('');
+ document.getElementById('slots').innerHTML=S[sel].map(([h,m,n])=>`<div class="li"><div><b>${n}</b><p>Google Meet · 1 hr</p></div><span class="pill ok">${fmt(h,m)}</span></div>`).join('');
+ const t=days[(new Date().getDay()+6)%7],c=S[t][0];
+ document.getElementById('nextTime').textContent='ഇന്ന് · '+fmt(c[0],c[1]);
+ document.getElementById('nextName').textContent=c[2];
+}
+const L=[['അ','a'],['ആ','aa'],['ഇ','i'],['ഈ','ee'],['ഉ','u'],['ഊ','oo'],['എ','e'],['ഏ','ae'],['ഐ','ai'],['ഒ','o'],['ഓ','oa'],['ഔ','au'],['ക','ka'],['ഖ','kha'],['ഗ','ga'],['ച','cha'],['ട','ta'],['ത','tha'],['പ','pa'],['മ','ma'],['യ','ya'],['ര','ra'],['ല','la'],['വ','va']];
+document.getElementById('letters').innerHTML=L.map(([a,b])=>`<div onclick="say('${a}','${b}')">${a}<small>${b}</small></div>`).join('');
+function say(a,b){toast(a+' = "'+b+'"');try{const u=new SpeechSynthesisUtterance(a);u.lang='ml-IN';speechSynthesis.speak(u)}catch(e){}}
+function go(v){document.querySelectorAll('.view').forEach(x=>x.classList.toggle('on',x.id=='v-'+v));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v==v));scrollTo(0,0)}
+let tt;function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2200)}
+render();
+if('serviceWorker' in navigator && location.hostname.endsWith('github.io')){navigator.serviceWorker.register('sw.js').then(r=>{r.update();r.onupdatefound=()=>{const w=r.installing;w.onstatechange=()=>{if(w.state==='installed'&&navigator.serviceWorker.controller){toast('🔄 പുതിയ അപ്ഡേറ്റ് · Updating…');setTimeout(()=>location.reload(),1500)}}}}).catch(()=>{})}
+</script>
+</body>
+</html>
