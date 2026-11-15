@@ -3,347 +3,316 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0b7a55">
+<meta name="theme-color" content="#ffffff">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Zanha Tuition">
 <title>Zanha Online Tuition</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,500&family=Poppins:wght@400;600;700&family=Noto+Sans+Malayalam:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--p:#6a3df0;--p2:#b04ef5;--pk:#ff6fa8;--gold:#ffc65c;--bg:#f6f2ff;--card:#fff;--t:#1d1442;--m:#6f6893;--g:#14b866;--o:#f39a2e;--r:#ef4d6b}
+:root{--bg:#f6f6f3;--card:#fff;--ink:#0d1b2e;--navy:#13294b;--gold:#b8933e;--goldl:#f5eedd;--m:#6b7280;--line:#ebeae6;--ok:#1f8a5b;--okl:#e8f4ee;--warn:#b7791f;--warnl:#fbf2e2;--bad:#c2410c;--badl:#fdeee6}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-body{font-family:Poppins,'Noto Sans Malayalam',sans-serif;background:#e9e3fb;color:var(--t);display:flex;justify-content:center}
-.app{width:100%;max-width:430px;min-height:100vh;background:var(--bg);position:relative;padding-bottom:86px;overflow:hidden}
-header{position:relative;background:linear-gradient(150deg,#4b22d6 0%,#8b3cf0 45%,#e05aa8 100%);color:#fff;padding:16px 18px 64px;border-radius:0 0 34px 34px;overflow:hidden}
-header:before,header:after{content:"";position:absolute;border-radius:50%;filter:blur(2px);opacity:.35}
-header:before{width:230px;height:230px;background:radial-gradient(circle,#ffc65c,transparent 70%);top:-80px;right:-70px;animation:float 8s ease-in-out infinite}
-header:after{width:200px;height:200px;background:radial-gradient(circle,#5ee7ff,transparent 70%);bottom:-60px;left:-60px;animation:float 10s ease-in-out infinite reverse}
-@keyframes float{50%{transform:translate(18px,14px) scale(1.08)}}
-.deco{position:absolute;inset:0;pointer-events:none;opacity:.22;font-size:22px}
-.deco span{position:absolute;animation:bob 6s ease-in-out infinite}
-@keyframes bob{50%{transform:translateY(-10px) rotate(8deg)}}
-header .row{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
-.brand{font-weight:700;font-size:18px;letter-spacing:.3px}.brand small{display:block;font-weight:400;font-size:11px;opacity:.85}
-select.tz{background:rgba(255,255,255,.18);backdrop-filter:blur(8px);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:7px 10px;font:inherit;font-size:12px}
-select.tz option{color:#000}
-.hero{text-align:center;margin-top:16px;position:relative;z-index:2}
-.ringx{width:150px;height:150px;margin:0 auto;border-radius:50%;padding:5px;background:conic-gradient(var(--gold),var(--pk),#5ee7ff,var(--gold));animation:spin 6s linear infinite;box-shadow:0 12px 34px rgba(30,0,80,.45)}
-.ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:4px solid #fff;animation:spin 6s linear infinite reverse}
-@keyframes spin{to{transform:rotate(360deg)}}
-.badge{display:inline-flex;align-items:center;gap:5px;background:#fff;color:var(--p);font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:-14px;position:relative;box-shadow:0 4px 12px rgba(0,0,0,.15)}
-.hero h1{font-size:27px;margin-top:8px;font-weight:700;text-shadow:0 2px 10px rgba(0,0,0,.2)}
-.hero p{font-size:13px;opacity:.92}
-.hero .tag{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(6px)}
-.stats{display:flex;justify-content:center;gap:10px;margin-top:14px}
-.stats div{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:16px;padding:8px 12px;min-width:84px;backdrop-filter:blur(6px)}
-.stats b{display:block;font-size:17px}.stats span{font-size:10px;opacity:.9}
-main{padding:0 16px;margin-top:-44px;position:relative;z-index:3}
-.card{background:var(--card);border-radius:22px;padding:16px;margin-bottom:14px;box-shadow:0 10px 30px rgba(80,40,170,.10);animation:up .5s ease both}
-@keyframes up{from{opacity:0;transform:translateY(14px)}}
-.tag{display:inline-block;font-size:11px;background:#efeafe;color:var(--p);padding:4px 10px;border-radius:20px;margin:6px 3px 0}
-h3{font-size:15px;margin-bottom:12px}
-.next{background:linear-gradient(135deg,#1d1442,#3d2390 60%,#6a3df0);color:#fff;position:relative;overflow:hidden}
-.next:after{content:"🎓";position:absolute;right:-6px;top:-8px;font-size:84px;opacity:.13;transform:rotate(12deg)}
-.next .sub{font-size:12px;opacity:.8}.next .time{font-size:24px;font-weight:700;margin:6px 0}
-.live{display:inline-block;width:8px;height:8px;background:#ff4f7a;border-radius:50%;margin-right:6px;animation:pulse 1.4s infinite}
-@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(255,79,122,0)}0%{box-shadow:0 0 0 0 rgba(255,79,122,.6)}}
-.btn{display:block;width:100%;border:0;border-radius:16px;padding:13px;font:inherit;font-weight:600;cursor:pointer;background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;text-align:center;text-decoration:none;box-shadow:0 8px 20px rgba(106,61,240,.3);transition:transform .15s}
-.btn:active{transform:scale(.97)}
-.btn.g{background:linear-gradient(135deg,#12c46b,#0a9a53);box-shadow:0 8px 20px rgba(20,184,102,.35)}.btn.lite{background:#efeafe;color:var(--p);box-shadow:none}
-.btn.wa{background:#25d366;width:auto;display:inline-flex;align-items:center;gap:6px;padding:10px 20px;margin-top:14px;font-size:13px;box-shadow:0 8px 20px rgba(0,0,0,.2)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.tile{border-radius:22px;padding:16px 14px;cursor:pointer;color:#fff;position:relative;overflow:hidden;box-shadow:0 10px 22px rgba(60,30,140,.15);transition:transform .15s;animation:up .5s ease both}
-.tile:active{transform:scale(.96)}
-.tile:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;background:rgba(255,255,255,.15);right:-25px;bottom:-25px}
-.tile:nth-child(1){background:linear-gradient(135deg,#6a3df0,#9b6bff)}.tile:nth-child(2){background:linear-gradient(135deg,#ff6fa8,#ff9472)}
-.tile:nth-child(3){background:linear-gradient(135deg,#12b7c4,#3ddc97)}.tile:nth-child(4){background:linear-gradient(135deg,#f7a325,#ffcf5c)}
-.tile .ic{font-size:28px;background:rgba(255,255,255,.22);width:48px;height:48px;border-radius:15px;display:flex;align-items:center;justify-content:center}
-.tile b{display:block;font-size:14px;margin-top:10px}.tile span{font-size:11px;opacity:.9}
-.li{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px dashed #e6e0f7;gap:10px}
-.li:last-child{border:0}.li b{font-size:13px}.li p{font-size:11px;color:var(--m);margin-top:2px}
-.pill{font-size:11px;padding:5px 10px;border-radius:20px;white-space:nowrap;font-weight:600}
-.ok{background:#e1f8ec;color:var(--g)}.due{background:#ffe6ec;color:var(--r)}.pen{background:#fff1e0;color:var(--o)}
-.days{display:flex;gap:7px;overflow-x:auto;margin-bottom:12px;scrollbar-width:none}.days::-webkit-scrollbar{display:none}
-.day{flex:0 0 auto;padding:8px 14px;border-radius:14px;background:#f3effe;font-size:12px;cursor:pointer;color:var(--m);transition:.2s}
-.day.on{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;box-shadow:0 6px 14px rgba(106,61,240,.3)}
-label{font-size:12px;color:var(--m);display:block;margin:12px 0 5px}
-input,select.f,textarea{width:100%;padding:12px;border:1.5px solid #e4ddf8;border-radius:14px;font:inherit;font-size:14px;background:#fbfaff;outline:none;transition:.2s}
-input:focus,select.f:focus{border-color:var(--p);background:#fff}
-nav{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);width:calc(100% - 24px);max-width:406px;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);display:flex;justify-content:space-around;padding:8px 4px;border-radius:24px;box-shadow:0 10px 30px rgba(60,30,140,.18);z-index:5}
-nav button{background:none;border:0;font:inherit;font-size:10px;color:var(--m);display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:4px 8px;border-radius:14px;transition:.2s}
-nav button .ic{font-size:20px}nav button.on{color:var(--p);font-weight:700;background:#efeafe}
-.view{display:none}.view.on{display:block}
-.big{font-size:28px;font-weight:700}
-.toast{position:fixed;left:50%;bottom:100px;transform:translateX(-50%);background:#1d1442;color:#fff;padding:11px 18px;border-radius:14px;font-size:13px;opacity:0;transition:.3s;pointer-events:none;max-width:90%;z-index:20}
-.toast.show{opacity:1}
+body{font-family:Inter,'Noto Sans Malayalam',system-ui,sans-serif;background:#ecebe7;color:var(--ink);display:flex;justify-content:center;font-size:14px;-webkit-font-smoothing:antialiased}
+.app{width:100%;max-width:430px;min-height:100vh;background:var(--bg);padding:0 0 92px}
+svg.i{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px 6px}
+.brand{font-weight:600;font-size:15px;letter-spacing:-.2px}.brand span{color:var(--gold)}
+select.tz{appearance:none;-webkit-appearance:none;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 10px;font:inherit;font-size:12px;color:var(--ink)}
+.profile{display:flex;flex-direction:column;align-items:center;text-align:center;padding:14px 20px 6px}
+.avatar{width:96px;height:96px;border-radius:50%;padding:3px;background:linear-gradient(140deg,#e4cf9c,var(--gold))}
+.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid var(--bg);display:block}
+.profile h1{font-size:20px;font-weight:600;letter-spacing:-.3px;margin-top:12px}
+.profile .role{font-size:13px;color:var(--m);margin-top:3px}
+.profile .role b{color:var(--gold);font-weight:500}
+.actions{display:flex;gap:10px;margin-top:16px;width:100%}
+.btn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:12px;font:inherit;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;background:var(--navy);color:#fff;transition:opacity .15s}
+.btn:active{opacity:.8}
+.btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.btn svg.i{width:18px;height:18px}
+.facts{display:flex;width:100%;margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:14px}
+.facts div{flex:1;padding:11px 4px;text-align:center}.facts div+div{border-left:1px solid var(--line)}
+.facts b{display:block;font-size:15px;font-weight:600}.facts span{font-size:11px;color:var(--m)}
+.sec{padding:0 20px;margin-top:22px}
+.sec-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.sec-h h2{font-size:15px;font-weight:600;letter-spacing:-.2px}
+.sec-h a{font-size:12px;color:var(--gold);font-weight:500;cursor:pointer}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.next{background:var(--navy);color:#fff;border:0}
+.next .lbl{font-size:12px;color:#b9c3d6;display:flex;align-items:center;gap:6px}
+.dot{width:6px;height:6px;border-radius:50%;background:#e4cf9c}
+.next .t{font-size:22px;font-weight:600;margin-top:6px;letter-spacing:-.4px}
+.next .n{font-size:13px;color:#d3dae6;margin-top:2px}
+.next .btn{background:#fff;color:var(--navy);margin-top:14px;width:100%}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.q{display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;font-size:11.5px;color:var(--ink)}
+.q .ic{width:54px;height:54px;border-radius:16px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12px;padding:6px 12px;border-radius:20px;background:var(--card);border:1px solid var(--line);color:var(--ink);cursor:pointer;white-space:nowrap}
+.chip.main{background:var(--goldl);border-color:#ecdfbf;color:#7a5f1f;font-weight:500}
+.chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border:0;padding-bottom:0}.row:first-child{padding-top:0}
+.row .tx{flex:1;min-width:0}.row b{font-size:14px;font-weight:500;display:block}.row p{font-size:12px;color:var(--m);margin-top:2px}
+.time{font-size:13px;font-weight:600;color:var(--navy);white-space:nowrap}
+.pill{font-size:11px;padding:3px 9px;border-radius:20px;font-weight:500;white-space:nowrap}
+.ok{background:var(--okl);color:var(--ok)}.due{background:var(--badl);color:var(--bad)}.pen{background:var(--warnl);color:var(--warn)}
+.type{font-size:11px;color:var(--gold);font-weight:500}
+.scroll{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-bottom:12px}.scroll::-webkit-scrollbar{display:none}
+.bar{height:6px;background:#efeee9;border-radius:6px;overflow:hidden;margin-top:8px}.bar i{display:block;height:100%;background:var(--navy);border-radius:6px}
+label{font-size:12px;color:var(--m);display:block;margin:14px 0 6px}
+input,select.f{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;font:inherit;font-size:14px;background:var(--card);color:var(--ink);outline:none}
+input:focus,select.f:focus{border-color:var(--navy)}
+input[type=checkbox]{width:auto}
+.big{font-size:26px;font-weight:600;letter-spacing:-.5px}
+.vid{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer}.vid:last-child{border:0}
+.th{width:104px;height:60px;border-radius:10px;background:#1c2f52 center/cover;position:relative;flex:0 0 auto}
+.th:after{content:"";position:absolute;left:50%;top:50%;transform:translate(-40%,-50%);border-left:12px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;opacity:.95}
 .letters{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
-.letters div{background:linear-gradient(135deg,#f3eeff,#ffeef6);border-radius:14px;text-align:center;padding:10px 0;font-size:22px;font-weight:700;color:var(--p);cursor:pointer;transition:.15s}
-.letters div:active{transform:scale(.9);background:var(--p);color:#fff}
-.letters div small{display:block;font-size:10px;color:var(--m);font-weight:400}
-.bar{height:9px;background:#efeafe;border-radius:9px;overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;background:linear-gradient(90deg,#12c46b,#7be495);border-radius:9px}
-.vcard{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed #e6e0f7;cursor:pointer}
-.vcard .th{width:116px;height:66px;border-radius:14px;background:linear-gradient(135deg,#6a3df0,#ff6fa8) center/cover;position:relative;flex:0 0 auto;box-shadow:0 6px 14px rgba(60,30,140,.2)}
-.vcard .th:after{content:"▶";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;text-shadow:0 2px 6px #0006}
-.vcard b{font-size:13px}.vcard p{font-size:11px;color:var(--m)}
-.modal{position:fixed;inset:0;background:#0009;backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:9;padding:14px}.modal.on{display:flex}
-.mbox{background:#fff;border-radius:22px;overflow:hidden;width:100%;max-width:400px}.mbox video{width:100%;background:#000;display:block}
-.k1{background:#e6f0ff;color:#2a62d6}.k2{background:#fff1e0;color:var(--o)}
-.app.sub .hero .tag,.app.sub .stats,.app.sub .hero .btn.wa,.app.sub .hero p,.app.sub .badge,.app.sub .deco{display:none}
-.app.sub .ringx{width:84px;height:84px}.app.sub .hero h1{font-size:20px}.app.sub header{padding-bottom:56px}
-
-/* ---- Premium green education theme ---- */
-:root{--p:#0e8a5f;--p2:#18b67e;--pk:#5fd3a5;--gold:#d8b25a;--bg:#f3faf6;--t:#0f2a20;--m:#5d7a6d}
-body{background:#e3f1ea}
-header{background:linear-gradient(160deg,#064e3b 0%,#0b7a55 55%,#14a374 100%);padding:14px 18px 70px;border-radius:0 0 36px 36px}
-header:before{display:block;width:260px;height:260px;background:radial-gradient(circle,rgba(255,255,255,.35),transparent 70%);top:-110px;right:-90px;opacity:.5}
-header:after{display:block;width:220px;height:220px;background:radial-gradient(circle,rgba(216,178,90,.45),transparent 70%);bottom:-90px;left:-70px;opacity:.5}
-.deco{display:block;opacity:.16}
-.pattern{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1.2px,transparent 1.2px);background-size:18px 18px;mask-image:linear-gradient(180deg,#000,transparent 85%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%)}
-.brand{display:flex;align-items:center;gap:9px;font-family:'Playfair Display',serif;font-size:19px}
-.brand small{font-family:Poppins,sans-serif;letter-spacing:2px;text-transform:uppercase;font-size:9px;opacity:.85}
-.logo{width:34px;height:34px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0b5b40;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.18)}
-.hero{margin-top:18px}
-.mini{width:146px;height:146px;margin:0 auto;border-radius:50%;padding:4px;background:linear-gradient(135deg,#f4e3b0,#d8b25a 50%,#fff);box-shadow:0 0 0 8px rgba(255,255,255,.12),0 16px 36px rgba(0,40,25,.45)}
-.mini img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:4px solid #fff}
-.gold-badge{display:inline-block;font-size:10px;letter-spacing:1.5px;font-weight:600;padding:6px 14px;border-radius:30px;margin-top:-12px;position:relative;color:#0b5b40;background:#fff;box-shadow:0 6px 16px rgba(0,0,0,.18)}
-.hero h1{font-family:'Playfair Display',serif;font-size:33px;margin-top:10px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.18)}
-.stars{color:#f4d27a;font-size:14px;letter-spacing:2px}.stars span{display:block;color:#d6f5e7;font-size:11px;letter-spacing:0}
-.quote{font-family:'Playfair Display',serif;font-style:italic;font-size:14px!important;opacity:.92;margin-top:8px}
-.chips{margin-top:10px}.chips span{display:inline-block;font-size:11px;margin:3px;padding:5px 12px;border-radius:20px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);color:#fff}
-.chips span:first-child{background:#fff;color:#0b5b40;font-weight:600}
-.stats div{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3)}
-.cta{display:flex;gap:10px;justify-content:center;margin-top:16px}
-.cta .btn{width:auto;display:inline-flex;margin:0;padding:12px 20px;font-size:13px}
-.btn.goldb{background:#fff;color:#0b5b40;box-shadow:0 8px 22px rgba(0,0,0,.18)}
-.phone{font-size:11px!important;opacity:.8;margin-top:8px}
-.btn{background:linear-gradient(135deg,#0b7a55,#18b67e);box-shadow:0 8px 20px rgba(14,138,95,.28)}
-.btn.lite{background:#e3f5ec;color:#0b7a55;box-shadow:none}
-.next{background:linear-gradient(135deg,#052e22,#0b5b40 60%,#0e8a5f)}
-.tile:nth-child(1){background:linear-gradient(135deg,#0b7a55,#18b67e)}.tile:nth-child(2){background:linear-gradient(135deg,#0f766e,#2dd4bf)}
-.tile:nth-child(3){background:linear-gradient(135deg,#3f8f3a,#8bd46b)}.tile:nth-child(4){background:linear-gradient(135deg,#b8892d,#e3c26d)}
-.day{background:#e9f6ef}.day.on{background:linear-gradient(135deg,#0b7a55,#18b67e);box-shadow:0 6px 14px rgba(14,138,95,.3)}
-.tag{background:#e3f5ec;color:#0b7a55}
-nav button.on{color:#0b7a55;background:#e3f5ec}
-.letters div{background:linear-gradient(135deg,#ecf8f2,#f7fbe9);color:#0b7a55}
-.card{box-shadow:0 10px 30px rgba(10,90,60,.09)}
-input:focus,select.f:focus{border-color:#18b67e}
-input,select.f{border-color:#d3eadf;background:#fbfefc}
-.vcard .th{background-color:#0b7a55}
-.app.sub header{padding-bottom:60px}
-.app.sub .mini{width:80px;height:80px;padding:3px;box-shadow:0 8px 20px rgba(0,40,25,.4)}
-.app.sub .gold-badge,.app.sub .stars,.app.sub .quote,.app.sub .chips,.app.sub .stats,.app.sub .cta,.app.sub .phone,.app.sub .deco{display:none}
-.app.sub .hero h1{font-size:22px;margin-top:6px}
+.letters div{border:1px solid var(--line);border-radius:12px;text-align:center;padding:9px 0;font-size:20px;font-weight:500;cursor:pointer;background:var(--card)}
+.letters div:active{background:var(--navy);color:#fff}
+.letters small{display:block;font-size:10px;color:var(--m)}
+.mini{display:none}
+.view{display:none}.view.on{display:block}
+nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 6px calc(10px + env(safe-area-inset-bottom));z-index:5}
+nav button{background:none;border:0;font:inherit;font-size:10.5px;color:#9aa1ad;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:2px 10px}
+nav button.on{color:var(--navy);font-weight:600}
+.hdr{display:flex;align-items:center;gap:10px;padding:16px 20px 4px}
+.hdr img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.hdr h1{font-size:18px;font-weight:600;letter-spacing:-.3px;flex:1}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:12px;font-size:13px;opacity:0;transition:.25s;pointer-events:none;max-width:88%;z-index:20}
+.toast.show{opacity:1}
+.modal{position:fixed;inset:0;background:rgba(13,27,46,.6);display:none;align-items:center;justify-content:center;z-index:9;padding:16px}.modal.on{display:flex}
+.mbox{background:#fff;border-radius:18px;overflow:hidden;width:100%;max-width:400px}.mbox video{width:100%;background:#000;display:block}
+.muted{font-size:11.5px;color:var(--m);margin-top:10px}
 </style>
 </head>
 <body>
 <div class="app">
-<header>
- <div class="pattern"></div>
- <div class="deco"><span style="left:7%;top:24%">🔬</span><span style="right:9%;top:30%;animation-delay:1s">🧪</span><span style="left:10%;top:52%;animation-delay:2s">⚛️</span><span style="right:12%;top:56%;animation-delay:3s">🌿</span></div>
- <div class="row">
-  <div class="brand"><span class="logo">Z</span><div>Zanha<small>Online Tuition</small></div></div>
-  <select class="tz" id="tz" onchange="render()">
-   <option value="Asia/Kolkata">🇮🇳 India</option>
-   <option value="Asia/Dubai">🇦🇪 UAE</option>
-   <option value="Asia/Riyadh">🇸🇦 Saudi</option>
-   <option value="Asia/Qatar">🇶🇦 Qatar</option>
-   <option value="Asia/Kuwait">🇰🇼 Kuwait</option>
-  </select>
- </div>
- <div class="hero">
-  <div class="mini"><img src="zanha.jpg" alt=""></div>
-  <div class="gold-badge">✦ SCIENCE SPECIALIST · 8th – 10th</div>
-  <h1>Zanha Zakhariya</h1>
-  <div class="stars">★★★★★ <span>Trusted by parents in India & the Gulf</span></div>
-  <p class="quote">“Science made simple, one concept at a time.”</p>
-  <div class="chips"><span>🔬 Science</span><span>📗 English</span><span>📙 മലയാളം</span></div>
-  <div class="stats"><div><b>👤 · 👥</b><span>Single & Group</span></div><div><b id="subCount">3</b><span>Subjects</span></div><div><b>🇮🇳🇦🇪🇸🇦🇶🇦</b><span>Countries</span></div></div>
-  <div class="cta"><a class="btn wa" href="https://wa.me/918714499392?text=Hi%20Zanha%20teacher%2C%20I%20want%20to%20know%20about%20tuition">💬 WhatsApp</a><a class="btn goldb" onclick="go('join')">📅 Book a Class</a></div>
-  <p class="phone">📞 +91 87144 99392</p>
- </div>
-</header>
-<main>
 
 <!-- HOME -->
 <section class="view on" id="v-home">
- <div class="card next">
-  <div class="sub"><span class="live"></span>അടുത്ത ക്ലാസ് · Next class</div>
-  <div class="time" id="nextTime"></div>
-  <div class="sub" id="nextName"></div>
-  <div style="height:12px"></div>
-  <a class="btn g" href="https://meet.google.com" onclick="toast('ഹാജർ രേഖപ്പെടുത്തി ✔ Attendance marked')">▶ Join Class</a>
+ <div class="top">
+  <div class="brand">Zanha <span>Tuition</span></div>
+  <select class="tz" onchange="setTz(this.value)"></select>
  </div>
- <div class="grid">
-  <div class="tile" onclick="go('time')"><div class="ic">🗓️</div><b>ക്ലാസുകൾ</b><span>One-to-One & Group</span></div>
-  <div class="tile" onclick="go('vid')"><div class="ic">🎬</div><b>ക്ലാസ് വീഡിയോ</b><span>Class videos</span></div>
-  <div class="tile" onclick="go('hw')"><div class="ic">📝</div><b>ഹോംവർക്ക്</b><span>2 pending</span></div>
-  <div class="tile" onclick="go('courses')"><div class="ic">🅰️</div><b>വിഷയങ്ങൾ</b><span>Subjects & മലയാളം അക്ഷരം</span></div>
+ <div class="profile">
+  <div class="avatar"><img src="zanha.jpg" alt="Zanha Zakhariya"></div>
+  <h1>Zanha Zakhariya</h1>
+  <div class="role"><b>Science</b> · Class 8 – 10 · Online</div>
+  <div class="actions">
+   <a class="btn" href="https://wa.me/918714499392?text=Hi%20Zanha%20teacher%2C%20I%20want%20to%20know%20about%20tuition"><svg class="i" data-i="chat"></svg>WhatsApp</a>
+   <button class="btn ghost" onclick="go('join')"><svg class="i" data-i="cal"></svg>Book a class</button>
+  </div>
+  <div class="facts">
+   <div><b>1:1 & Group</b><span>Classes</span></div>
+   <div><b id="subCount">3</b><span>Subjects</span></div>
+   <div><b>India · Gulf</b><span>Students</span></div>
+  </div>
  </div>
- <div style="height:14px"></div>
- <div class="card"><h3>📘 വിഷയങ്ങൾ · Subjects <span style="float:right;font-size:12px;color:var(--p);cursor:pointer" onclick="go('courses')">＋ Add / Edit</span></h3><div id="subChips"></div></div>
- <div class="card">
-  <h3>📈 Progress · പുരോഗതി</h3>
-  <div class="li"><div><b>ഹാജർ · Attendance</b><div class="bar" style="width:180px"><i style="width:92%"></i></div></div><b>92%</b></div>
-  <div class="li"><div><b>അവസാന ടെസ്റ്റ് · Last test</b><p>Science – Cell Biology</p></div><b>18/20</b></div>
+
+ <div class="sec">
+  <div class="card next">
+   <div class="lbl"><span class="dot"></span>അടുത്ത ക്ലാസ് · Next class</div>
+   <div class="t" id="nextTime"></div>
+   <div class="n" id="nextName"></div>
+   <a class="btn" href="https://meet.google.com" onclick="toast('ഹാജർ രേഖപ്പെടുത്തി · Attendance marked')"><svg class="i" data-i="video"></svg>Join class</a>
+  </div>
  </div>
- <button class="btn lite" onclick="go('join')">＋ പുതിയ അഡ്മിഷൻ · New Admission</button>
+
+ <div class="sec">
+  <div class="quick">
+   <div class="q" onclick="go('time')"><div class="ic"><svg class="i" data-i="cal"></svg></div>Classes</div>
+   <div class="q" onclick="go('vid')"><div class="ic"><svg class="i" data-i="play"></svg></div>Videos</div>
+   <div class="q" onclick="go('hw')"><div class="ic"><svg class="i" data-i="note"></svg></div>Homework</div>
+   <div class="q" onclick="go('courses')"><div class="ic"><svg class="i" data-i="book"></svg></div>Subjects</div>
+  </div>
+ </div>
+
+ <div class="sec">
+  <div class="sec-h"><h2>വിഷയങ്ങൾ · Subjects</h2><a onclick="go('courses')">Edit</a></div>
+  <div class="chips" id="subChips"></div>
+ </div>
+
+ <div class="sec">
+  <div class="sec-h"><h2>Progress</h2></div>
+  <div class="card">
+   <div class="row"><div class="tx"><b>ഹാജർ · Attendance</b><div class="bar"><i style="width:92%"></i></div></div><span class="time">92%</span></div>
+   <div class="row"><div class="tx"><b>Last test</b><p>Science – Cell Biology</p></div><span class="time">18/20</span></div>
+  </div>
+ </div>
+ <div class="sec"><button class="btn ghost" style="width:100%" onclick="go('join')"><svg class="i" data-i="plus"></svg>പുതിയ അഡ്മിഷൻ · New admission</button></div>
 </section>
 
 <!-- CLASSES -->
 <section class="view" id="v-time">
- <div class="card"><h3>🗓️ ക്ലാസുകൾ · Classes</h3>
-  <div class="days" id="kinds"></div>
-  <div class="days" id="days"></div>
-  <div id="slots"></div>
-  <p style="font-size:11px;color:var(--m);margin-top:8px">⏰ സമയം നിങ്ങളുടെ രാജ്യത്തിലേതാണ് (മുകളിൽ മാറ്റാം)</p>
+ <div class="hdr"><img src="zanha.jpg" alt=""><h1>ക്ലാസുകൾ · Classes</h1><select class="tz" onchange="setTz(this.value)"></select></div>
+ <div class="sec" style="margin-top:12px">
+  <div class="scroll" id="kinds"></div>
+  <div class="scroll" id="days"></div>
+  <div class="card" id="slots"></div>
+  <p class="muted">സമയം നിങ്ങളുടെ രാജ്യത്തിലേത് · Times shown in your country</p>
  </div>
 </section>
 
 <!-- VIDEOS -->
 <section class="view" id="v-vid">
- <div class="card"><h3>🎬 ക്ലാസ് വീഡിയോകൾ · Class Videos</h3>
-  <input id="q" placeholder="🔍 വീഡിയോ തിരയുക · Search videos" oninput="vids()">
+ <div class="hdr"><img src="zanha.jpg" alt=""><h1>ക്ലാസ് വീഡിയോ · Videos</h1></div>
+ <div class="sec" style="margin-top:12px">
+  <input id="q" placeholder="Search videos" oninput="vids()">
   <div style="height:10px"></div>
-  <div class="days" id="subs"></div>
-  <div id="vlist"></div>
+  <div class="scroll" id="subs"></div>
+  <div class="card" id="vlist"></div>
  </div>
- <div class="card"><h3>⬆️ ടീച്ചർ: വീഡിയോ അപ്‌ലോഡ് · Teacher upload</h3>
-  <label>വിഷയം / ടോപ്പിക് · Title</label><input id="vt" placeholder="ഉദാ: 10th Science – Chapter 3">
-  <label>വിഷയം · Subject</label><select class="f subSel" id="vs"></select>
-  <label>വീഡിയോ ഫയൽ · Video file</label><input type="file" accept="video/*" id="vf">
-  <div style="height:12px"></div><button class="btn" onclick="upVid()">അപ്‌ലോഡ് · Upload</button>
+ <div class="sec">
+  <div class="sec-h"><h2>Upload a video</h2><span class="type">Teacher</span></div>
+  <div class="card">
+   <label style="margin-top:0">Title</label><input id="vt" placeholder="ഉദാ: 10th Science – Chapter 3">
+   <label>Subject</label><select class="f subSel" id="vs"></select>
+   <label>Video file</label><input type="file" accept="video/*" id="vf">
+   <div style="height:14px"></div><button class="btn" style="width:100%" onclick="upVid()">Upload</button>
+  </div>
  </div>
 </section>
 
-<!-- COURSES -->
+<!-- SUBJECTS -->
 <section class="view" id="v-courses">
- <div class="card"><h3>📘 വിഷയങ്ങൾ · Subjects</h3>
-  <div id="subList"></div>
-  <label>പുതിയ വിഷയം ചേർക്കുക · Add a subject</label>
-  <div style="display:flex;gap:8px"><input id="newSub" placeholder="ഉദാ: Physics, Hindi, Chemistry…"><button class="btn" style="width:auto;padding:0 18px" onclick="addSub()">＋</button></div>
-  <label style="display:flex;align-items:center;gap:8px;margin-top:10px"><input type="checkbox" id="newMain" style="width:auto"> ⭐ പ്രധാന വിഷയം · Main subject</label>
+ <div class="hdr"><img src="zanha.jpg" alt=""><h1>വിഷയങ്ങൾ · Subjects</h1></div>
+ <div class="sec" style="margin-top:12px">
+  <div class="card" id="subList"></div>
  </div>
- <div class="card"><h3>🅰️ അക്ഷരം പഠിക്കാം · Tap a letter</h3>
+ <div class="sec">
+  <div class="sec-h"><h2>Add a subject</h2><span class="type">Teacher</span></div>
+  <div class="card">
+   <div style="display:flex;gap:8px"><input id="newSub" placeholder="ഉദാ: Physics, Hindi…"><button class="btn" style="flex:0 0 52px" onclick="addSub()"><svg class="i" data-i="plus"></svg></button></div>
+   <label style="display:flex;align-items:center;gap:8px;margin-bottom:0"><input type="checkbox" id="newMain"> Main subject</label>
+  </div>
+ </div>
+ <div class="sec">
+  <div class="sec-h"><h2>മലയാളം അക്ഷരം</h2><span class="type">Tap to hear</span></div>
   <div class="letters" id="letters"></div>
  </div>
 </section>
 
 <!-- HOMEWORK -->
 <section class="view" id="v-hw">
- <div class="card"><h3>📝 ഹോംവർക്ക് · Homework</h3>
-  <div class="li"><div><b>മലയാളം – ഉപന്യാസം</b><p>"എൻ്റെ വീട്" · Due Tue</p></div><span class="pill due">Pending</span></div>
-  <div class="li"><div><b>Science – Ch 2 Questions</b><p>Acids, Bases & Salts · Due Wed</p></div><span class="pill due">Pending</span></div>
-  <div class="li"><div><b>English – Essay</b><p>My School</p></div><span class="pill ok">✔ 9/10</span></div>
-  <label>ഫോട്ടോ അപ്‌ലോഡ് ചെയ്യുക · Upload your work</label>
-  <input type="file" accept="image/*,application/pdf" onchange="toast('അപ്‌ലോഡ് ചെയ്തു ✔ Sent to teacher')">
+ <div class="hdr"><img src="zanha.jpg" alt=""><h1>ഹോംവർക്ക് · Homework</h1></div>
+ <div class="sec" style="margin-top:12px">
+  <div class="card">
+   <div class="row"><div class="tx"><b>Science – Ch 2 Questions</b><p>Acids, Bases & Salts · Due Wed</p></div><span class="pill due">Pending</span></div>
+   <div class="row"><div class="tx"><b>മലയാളം – ഉപന്യാസം</b><p>"എൻ്റെ വീട്" · Due Tue</p></div><span class="pill due">Pending</span></div>
+   <div class="row"><div class="tx"><b>English – Essay</b><p>My School</p></div><span class="pill ok">9/10</span></div>
+  </div>
+  <label>Upload your work</label>
+  <input type="file" accept="image/*,application/pdf" onchange="toast('Sent to teacher')">
  </div>
- <div class="card"><h3>📂 നോട്ട്സ് · Notes & Recordings</h3>
-  <div class="li"><div><b>🎥 Class recording – Mon</b><p>മിസ്സായ ക്ലാസ് കാണാം</p></div><span class="pill ok">Watch</span></div>
-  <div class="li"><div><b>📄 Malayalam Grammar.pdf</b><p>സന്ധി, സമാസം</p></div><span class="pill ok">Open</span></div>
+ <div class="sec">
+  <div class="sec-h"><h2>Notes & recordings</h2></div>
+  <div class="card">
+   <div class="row"><div class="tx"><b>Class recording – Monday</b><p>മിസ്സായ ക്ലാസ് കാണാം</p></div><span class="pill ok">Watch</span></div>
+   <div class="row"><div class="tx"><b>Science Notes – Light.pdf</b><p>10th · Physics</p></div><span class="pill ok">Open</span></div>
+  </div>
  </div>
 </section>
 
 <!-- FEES -->
 <section class="view" id="v-fees">
- <div class="card"><h3>💳 ഫീസ് · Fees</h3>
-  <p style="font-size:12px;color:var(--m)">ഈ മാസം · This month</p>
-  <div class="big">₹1,500 <span class="pill due" style="vertical-align:middle">Due 10 Dec</span></div>
-  <div style="height:12px"></div>
-  <a class="btn" href="upi://pay?pa=zanha@upi&pn=Zanha%20Online%20Tuition&am=1500&cu=INR">UPI വഴി അടയ്ക്കുക · Pay by UPI</a>
-  <p style="font-size:11px;color:var(--m);margin-top:8px">UPI ID: zanha@upi (ഡെമോ) · ഗൾഫിൽ നിന്ന് ബാങ്ക് ട്രാൻസ്ഫറും ചെയ്യാം</p>
+ <div class="hdr"><img src="zanha.jpg" alt=""><h1>ഫീസ് · Fees</h1></div>
+ <div class="sec" style="margin-top:12px">
+  <div class="card">
+   <p style="font-size:12px;color:var(--m)">This month</p>
+   <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px"><span class="big">₹1,500</span><span class="pill due">Due 10 Dec</span></div>
+   <a class="btn" style="margin-top:14px" href="upi://pay?pa=zanha@upi&pn=Zanha%20Online%20Tuition&am=1500&cu=INR">Pay by UPI</a>
+   <p class="muted">UPI ID: zanha@upi (demo) · Gulf parents can also pay by bank transfer</p>
+  </div>
  </div>
- <div class="card"><h3>History</h3>
-  <div class="li"><div><b>November</b><p>Paid 05 Nov</p></div><span class="pill ok">✔ ₹1,500</span></div>
-  <div class="li"><div><b>October</b><p>Paid 03 Oct</p></div><span class="pill ok">✔ ₹1,500</span></div>
+ <div class="sec">
+  <div class="sec-h"><h2>History</h2></div>
+  <div class="card">
+   <div class="row"><div class="tx"><b>November</b><p>Paid 05 Nov</p></div><span class="pill ok">₹1,500</span></div>
+   <div class="row"><div class="tx"><b>October</b><p>Paid 03 Oct</p></div><span class="pill ok">₹1,500</span></div>
+  </div>
  </div>
 </section>
 
 <!-- JOIN -->
 <section class="view" id="v-join">
- <div class="card"><h3>＋ അഡ്മിഷൻ · Admission</h3>
-  <form onsubmit="event.preventDefault();toast('അപേക്ഷ കിട്ടി ✔ Zanha teacher will contact you');this.reset()">
-   <label>കുട്ടിയുടെ പേര് · Student name</label><input required>
-   <label>ക്ലാസ് · Class</label>
-   <select class="f"><option>8th</option><option>9th</option><option>10th</option><option>Spoken Malayalam (any age)</option></select>
-   <label>വിഷയം · Subject</label>
-   <select class="f subSel"></select>
-   <label>സ്ഥലം · Country / City</label><input placeholder="Dubai / Bangalore…">
-   <label>WhatsApp നമ്പർ</label><input type="tel" placeholder="+971 …" required>
-   <div style="height:14px"></div><button class="btn">അപേക്ഷിക്കുക · Submit</button>
+ <div class="hdr"><img src="zanha.jpg" alt=""><h1>അഡ്മിഷൻ · Admission</h1></div>
+ <div class="sec" style="margin-top:12px">
+  <form class="card" onsubmit="event.preventDefault();toast('അപേക്ഷ കിട്ടി · Teacher will contact you');this.reset()">
+   <label style="margin-top:0">Student name</label><input required>
+   <label>Class</label><select class="f"><option>8th</option><option>9th</option><option>10th</option><option>Spoken Malayalam (any age)</option></select>
+   <label>Subject</label><select class="f subSel"></select>
+   <label>Class type</label><select class="f"><option>One-to-One</option><option>Group</option></select>
+   <label>Country / City</label><input placeholder="Dubai, Bangalore…">
+   <label>WhatsApp number</label><input type="tel" placeholder="+971 …" required>
+   <div style="height:16px"></div><button class="btn" style="width:100%">Submit</button>
   </form>
  </div>
 </section>
 
-</main>
 <nav>
- <button class="on" data-v="home" onclick="go('home')"><span class="ic">🏠</span>Home</button>
- <button data-v="time" onclick="go('time')"><span class="ic">🗓️</span>Classes</button>
- <button data-v="vid" onclick="go('vid')"><span class="ic">🎬</span>Videos</button>
- <button data-v="hw" onclick="go('hw')"><span class="ic">📝</span>Homework</button>
- <button data-v="fees" onclick="go('fees')"><span class="ic">💳</span>Fees</button>
- 
+ <button class="on" data-v="home" onclick="go('home')"><svg class="i" data-i="home"></svg>Home</button>
+ <button data-v="time" onclick="go('time')"><svg class="i" data-i="cal"></svg>Classes</button>
+ <button data-v="vid" onclick="go('vid')"><svg class="i" data-i="play"></svg>Videos</button>
+ <button data-v="hw" onclick="go('hw')"><svg class="i" data-i="note"></svg>Homework</button>
+ <button data-v="fees" onclick="go('fees')"><svg class="i" data-i="card"></svg>Fees</button>
 </nav>
 <div class="toast" id="toast"></div>
-<div class="modal" id="modal" onclick="if(event.target==this)closeV()"><div class="mbox"><video id="player" controls playsinline></video><div style="padding:12px"><b id="ptitle"></b><p id="psub" style="font-size:12px;color:var(--m)"></p><div style="height:10px"></div><button class="btn lite" onclick="closeV()">✕ Close</button></div></div></div>
+<div class="modal" id="modal" onclick="if(event.target==this)closeV()"><div class="mbox"><video id="player" controls playsinline></video><div style="padding:14px"><b id="ptitle"></b><p id="psub" style="font-size:12px;color:var(--m);margin-top:2px"></p><button class="btn ghost" style="width:100%;margin-top:12px" onclick="closeV()">Close</button></div></div></div>
 </div>
 <script>
-// Class schedule in IST: [hour, minute, title, type(1=one-to-one,2=group), who, country, subject]
+const I={home:'<path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',cal:'<rect x="3" y="4.5" width="18" height="16.5" rx="3"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/>',play:'<rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="m10 9.5 5 2.5-5 2.5z"/>',note:'<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>',card:'<rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M2.5 10h19M6.5 15h4"/>',book:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/>',chat:'<path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5z"/>',video:'<path d="m15 10 5-3v10l-5-3z"/><rect x="3" y="6" width="12" height="12" rx="2.5"/>',plus:'<path d="M12 5v14M5 12h14"/>',x:'<path d="M6 6l12 12M18 6 6 18"/>'};
+document.querySelectorAll('svg[data-i]').forEach(s=>{s.setAttribute('viewBox','0 0 24 24');s.innerHTML=I[s.dataset.i]});
+const TZ=[['Asia/Kolkata','India'],['Asia/Dubai','UAE'],['Asia/Riyadh','Saudi'],['Asia/Qatar','Qatar'],['Asia/Kuwait','Kuwait']];let tz='Asia/Kolkata';
+document.querySelectorAll('select.tz').forEach(s=>s.innerHTML=TZ.map(([v,n])=>`<option value="${v}">${n}</option>`).join(''));
+function setTz(v){tz=v;document.querySelectorAll('select.tz').forEach(s=>s.value=v);render()}
+// Schedule in IST: [h, m, title, type 1=one-to-one 2=group, subject, who]
 const S={
-Mon:[[17,0,'Ameen (10th)',1,'Science','🇦🇪 Dubai'],[18,30,'10th Group A',2,'Science','6 students · 🇮🇳🇦🇪'],[20,0,'Spoken Malayalam Batch',2,'Spoken Malayalam','8 students · Gulf']],
-Tue:[[16,30,'Diya (8th)',1,'മലയാളം','🇮🇳 Bangalore'],[18,0,'8th Group',2,'Science','5 students · 🇮🇳'],[20,30,'Riya (beginner)',1,'അക്ഷരം','🇶🇦 Doha']],
-Wed:[[17,0,'Ameen (10th)',1,'Science','🇦🇪 Dubai'],[18,30,'10th Group A',2,'Science','6 students · 🇮🇳🇦🇪'],[20,0,'Spoken Malayalam Batch',2,'Spoken Malayalam','8 students · Gulf']],
-Thu:[[16,30,'Fathima (9th)',1,'Science','🇸🇦 Riyadh'],[18,0,'8th Group',2,'English','5 students · 🇮🇳'],[20,30,'Riya (beginner)',1,'അക്ഷരം','🇶🇦 Doha']],
-Fri:[[19,0,'10th Group A',2,'മലയാളം','6 students · 🇮🇳🇦🇪']],
-Sat:[[10,0,'Spoken Malayalam – Bangalore',2,'Spoken Malayalam','7 students · 🇮🇳'],[15,0,'Fathima (9th)',1,'Science','🇸🇦 Riyadh'],[17,0,'Weekly Test',2,'All','All groups']],
-Sun:[[11,0,'Doubt Clearing',2,'All','Open for all']]};
-const days=Object.keys(S);let sel=days[(new Date().getDay()+6)%7],kind=0;
-const K=['എല്ലാം · All','👤 One-to-One','👥 Group'];
-function fmt(h,m){const d=new Date(Date.UTC(2026,0,5,h,m)-330*60000);return d.toLocaleTimeString('en-IN',{hour:'numeric',minute:'2-digit',timeZone:document.getElementById('tz').value})}
+Mon:[[17,0,'Ameen · 10th',1,'Science','Dubai'],[18,30,'10th Group A',2,'Science','6 students'],[20,0,'Spoken Malayalam',2,'മലയാളം','8 students · Gulf']],
+Tue:[[16,30,'Diya · 8th',1,'മലയാളം','Bangalore'],[18,0,'8th Group',2,'Science','5 students'],[20,30,'Riya · Beginner',1,'മലയാളം','Doha']],
+Wed:[[17,0,'Ameen · 10th',1,'Science','Dubai'],[18,30,'10th Group A',2,'Science','6 students'],[20,0,'Spoken Malayalam',2,'മലയാളം','8 students · Gulf']],
+Thu:[[16,30,'Fathima · 9th',1,'Science','Riyadh'],[18,0,'8th Group',2,'English','5 students'],[20,30,'Riya · Beginner',1,'മലയാളം','Doha']],
+Fri:[[19,0,'10th Group A',2,'Science','6 students']],
+Sat:[[10,0,'Spoken Malayalam',2,'മലയാളം','7 students · Bangalore'],[15,0,'Fathima · 9th',1,'English','Riyadh'],[17,0,'Weekly test',2,'Science','All groups']],
+Sun:[[11,0,'Doubt clearing',2,'All','Open for all']]};
+const days=Object.keys(S);let sel=days[(new Date().getDay()+6)%7],kind=0;const K=['All','One-to-One','Group'];
+function fmt(h,m){return new Date(Date.UTC(2026,0,5,h,m)-330*60000).toLocaleTimeString('en-IN',{hour:'numeric',minute:'2-digit',timeZone:tz})}
 function render(){
- document.getElementById('kinds').innerHTML=K.map((k,i)=>`<div class="day ${i==kind?'on':''}" onclick="kind=${i};render()">${k}</div>`).join('');
- document.getElementById('days').innerHTML=days.map(d=>`<div class="day ${d==sel?'on':''}" onclick="sel='${d}';render()">${d}</div>`).join('');
- const list=S[sel].filter(c=>!kind||c[3]==kind);
- document.getElementById('slots').innerHTML=list.length?list.map(([h,m,n,t,sub,who])=>`<div class="li"><div><b>${n}</b><p><span class="pill ${t==1?'k1':'k2'}" style="font-size:10px;padding:2px 7px">${t==1?'👤 One-to-One':'👥 Group'}</span> ${sub} · ${who}</p></div><span class="pill ok">${fmt(h,m)}</span></div>`).join(''):'<p style="font-size:13px;color:var(--m);padding:10px 0">ഈ ദിവസം ക്ലാസ് ഇല്ല</p>';
- const t=days[(new Date().getDay()+6)%7],c=S[t][0];
- document.getElementById('nextTime').textContent='ഇന്ന് · '+fmt(c[0],c[1]);
- document.getElementById('nextName').textContent=c[2]+' · '+(c[3]==1?'One-to-One':'Group')+' · '+c[4];
+ kinds.innerHTML=K.map((k,i)=>`<span class="chip ${i==kind?'on':''}" onclick="kind=${i};render()">${k}</span>`).join('');
+ document.getElementById('days').innerHTML=days.map(d=>`<span class="chip ${d==sel?'on':''}" onclick="sel='${d}';render()">${d}</span>`).join('');
+ const l=S[sel].filter(c=>!kind||c[3]==kind);
+ slots.innerHTML=l.length?l.map(([h,m,n,t,sub,who])=>`<div class="row"><div class="tx"><b>${n}</b><p><span class="type">${t==1?'One-to-One':'Group'}</span> · ${sub} · ${who}</p></div><span class="time">${fmt(h,m)}</span></div>`).join(''):'<p style="color:var(--m);font-size:13px">No classes</p>';
+ const c=S[days[(new Date().getDay()+6)%7]][0];
+ nextTime.textContent='Today, '+fmt(c[0],c[1]);nextName.textContent=c[2]+' · '+(c[3]==1?'One-to-One':'Group')+' · '+c[4];
 }
-// Class videos
-let V=[{t:'അക്ഷരം പഠിക്കാം – Lesson 1',s:'മലയാളം',d:'Beginners · 6 min',src:'videos/v1.mp4',th:'videos/t1.jpg'},
-{t:'10th Science – Light & Reflection',s:'Science',d:'10th · Physics',src:'videos/v2.mp4',th:'videos/t2.jpg'},
-{t:'Spoken Malayalam – Greetings',s:'Spoken Malayalam',d:'Gulf batch · Lesson 2',src:'videos/v3.mp4',th:'videos/t3.jpg'}];
-let vsub='All';
-function vids(){const subs=['All',...new Set(V.map(v=>v.s))];
- document.getElementById('subs').innerHTML=subs.map(x=>`<div class="day ${x==vsub?'on':''}" onclick="vsub='${x}';vids()">${x}</div>`).join('');
+// Videos
+let V=[{t:'അക്ഷരം പഠിക്കാം – Lesson 1',s:'മലയാളം',d:'Beginners',src:'videos/v1.mp4',th:'videos/t1.jpg'},{t:'10th Science – Light & Reflection',s:'Science',d:'10th · Physics',src:'videos/v2.mp4',th:'videos/t2.jpg'},{t:'Spoken Malayalam – Greetings',s:'മലയാളം',d:'Gulf batch',src:'videos/v3.mp4',th:'videos/t3.jpg'}];let vsub='All';
+function vids(){const ss=['All',...new Set(V.map(v=>v.s))];subs.innerHTML=ss.map(x=>`<span class="chip ${x==vsub?'on':''}" onclick="vsub='${x}';vids()">${x}</span>`).join('');
  const q=document.getElementById('q').value.toLowerCase();
- document.getElementById('vlist').innerHTML=V.map((v,i)=>[v,i]).filter(([v])=>(vsub=='All'||v.s==vsub)&&(v.t+v.s+v.d).toLowerCase().includes(q)).map(([v,i])=>`<div class="vcard" onclick="playV(${i})"><div class="th" style="background-image:url('${v.th||''}')"></div><div><b>${v.t}</b><p>${v.s} · ${v.d}</p></div></div>`).join('')||'<p style="font-size:13px;color:var(--m)">വീഡിയോ കിട്ടിയില്ല</p>'}
-function playV(i){const v=V[i],p=document.getElementById('player');p.src=v.src;document.getElementById('ptitle').textContent=v.t;document.getElementById('psub').textContent=v.s+' · '+v.d;document.getElementById('modal').classList.add('on');p.play().catch(()=>{})}
-function closeV(){const p=document.getElementById('player');p.pause();document.getElementById('modal').classList.remove('on')}
-function upVid(){const f=document.getElementById('vf').files[0],t=document.getElementById('vt').value.trim();if(!f||!t){toast('ടൈറ്റിലും വീഡിയോയും തിരഞ്ഞെടുക്കുക');return}
- V.unshift({t,s:document.getElementById('vs').value,d:'Just uploaded',src:URL.createObjectURL(f),th:''});vsub='All';vids();toast('✔ വീഡിയോ ചേർത്തു (ഡെമോ)');document.getElementById('vt').value='';document.getElementById('vf').value=''}
-vids();
-// Subjects (teacher can add any number)
-const DEF=[{n:'Science',m:1,d:'8th – 10th · Physics, Chemistry, Biology'},{n:'English',m:0,d:'Secondary'},{n:'മലയാളം',m:0,d:'Secondary · Spoken Malayalam for Gulf & Bangalore kids'}];
+ vlist.innerHTML=V.map((v,i)=>[v,i]).filter(([v])=>(vsub=='All'||v.s==vsub)&&(v.t+v.s+v.d).toLowerCase().includes(q)).map(([v,i])=>`<div class="vid" onclick="playV(${i})"><div class="th" style="background-image:url('${v.th||''}')"></div><div class="tx"><b style="font-size:13.5px;font-weight:500">${v.t}</b><p style="font-size:12px;color:var(--m);margin-top:2px">${v.s} · ${v.d}</p></div></div>`).join('')||'<p style="color:var(--m);font-size:13px">No videos found</p>'}
+function playV(i){const v=V[i];player.src=v.src;ptitle.textContent=v.t;psub.textContent=v.s+' · '+v.d;modal.classList.add('on');player.play().catch(()=>{})}
+function closeV(){player.pause();modal.classList.remove('on')}
+function upVid(){const f=vf.files[0],t=vt.value.trim();if(!f||!t){toast('Add a title and a video');return}V.unshift({t,s:vs.value,d:'Just uploaded',src:URL.createObjectURL(f),th:''});vsub='All';vids();toast('Video added (demo)');vt.value='';vf.value=''}
+// Subjects
+const DEF=[{n:'Science',m:1,d:'Class 8 – 10 · Physics, Chemistry, Biology'},{n:'English',m:0},{n:'മലയാളം',m:0,d:'Spoken Malayalam for Gulf & Bangalore kids'}];
 let SUB;try{SUB=JSON.parse(localStorage.getItem('zSubs'))||DEF}catch(e){SUB=DEF}
-function saveSub(){try{localStorage.setItem('zSubs',JSON.stringify(SUB))}catch(e){}subs()}
-function subs(){const o=[...SUB].sort((a,b)=>b.m-a.m);
- document.getElementById('subChips').innerHTML=o.map(x=>`<span class="tag" style="${x.m?'background:linear-gradient(135deg,#0b7a55,#18b67e);color:#fff;font-weight:600':''}">${x.m?'⭐ ':''}${x.n}</span>`).join('');
- document.getElementById('subList').innerHTML=o.map(x=>`<div class="li"><div><b>${x.m?'⭐ ':''}${x.n}</b><p>${x.d||(x.m?'Main subject':'Secondary')}</p></div><span class="pill ${x.m?'ok':'pen'}" style="cursor:pointer" onclick="togSub('${x.n}')">${x.m?'Main':'Secondary'}</span><span style="cursor:pointer;color:var(--r);font-size:16px" onclick="delSub('${x.n}')">✕</span></div>`).join('');
- document.querySelectorAll('.subSel').forEach(sl=>sl.innerHTML=o.map(x=>`<option>${x.n}</option>`).join(''));
- document.getElementById('subCount').textContent=SUB.length}
-function addSub(){const n=document.getElementById('newSub').value.trim();if(!n)return;if(SUB.some(x=>x.n.toLowerCase()==n.toLowerCase())){toast('ഈ വിഷയം ഉണ്ട്');return}
- SUB.push({n,m:document.getElementById('newMain').checked?1:0});document.getElementById('newSub').value='';saveSub();toast('✔ '+n+' ചേർത്തു')}
+function saveSub(){try{localStorage.setItem('zSubs',JSON.stringify(SUB))}catch(e){}subsR()}
+function subsR(){const o=[...SUB].sort((a,b)=>b.m-a.m);
+ subChips.innerHTML=o.map(x=>`<span class="chip ${x.m?'main':''}">${x.n}</span>`).join('');
+ subList.innerHTML=o.map(x=>`<div class="row"><div class="tx"><b>${x.n}</b><p>${x.d||(x.m?'Main subject':'Secondary')}</p></div><span class="pill ${x.m?'ok':'pen'}" style="cursor:pointer" onclick="togSub('${x.n}')">${x.m?'Main':'Secondary'}</span><svg class="i" viewBox="0 0 24 24" style="width:16px;color:#9aa1ad;cursor:pointer" onclick="delSub('${x.n}')">${I.x}</svg></div>`).join('');
+ document.querySelectorAll('.subSel').forEach(s=>s.innerHTML=o.map(x=>`<option>${x.n}</option>`).join(''));subCount.textContent=SUB.length}
+function addSub(){const n=newSub.value.trim();if(!n)return;if(SUB.some(x=>x.n.toLowerCase()==n.toLowerCase())){toast('Already added');return}SUB.push({n,m:newMain.checked?1:0});newSub.value='';saveSub();toast(n+' added')}
 function togSub(n){const x=SUB.find(x=>x.n==n);x.m=x.m?0:1;saveSub()}
-function delSub(n){if(SUB.length<2)return;SUB=SUB.filter(x=>x.n!=n);saveSub();toast(n+' നീക്കി')}
-subs();
+function delSub(n){if(SUB.length<2)return;SUB=SUB.filter(x=>x.n!=n);saveSub()}
+// Letters
 const L=[['അ','a'],['ആ','aa'],['ഇ','i'],['ഈ','ee'],['ഉ','u'],['ഊ','oo'],['എ','e'],['ഏ','ae'],['ഐ','ai'],['ഒ','o'],['ഓ','oa'],['ഔ','au'],['ക','ka'],['ഖ','kha'],['ഗ','ga'],['ച','cha'],['ട','ta'],['ത','tha'],['പ','pa'],['മ','ma'],['യ','ya'],['ര','ra'],['ല','la'],['വ','va']];
-document.getElementById('letters').innerHTML=L.map(([a,b])=>`<div onclick="say('${a}','${b}')">${a}<small>${b}</small></div>`).join('');
-function say(a,b){toast(a+' = "'+b+'"');try{const u=new SpeechSynthesisUtterance(a);u.lang='ml-IN';speechSynthesis.speak(u)}catch(e){}}
-function go(v){document.querySelector('.app').classList.toggle('sub',v!='home');document.querySelectorAll('.view').forEach(x=>x.classList.toggle('on',x.id=='v-'+v));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v==v));scrollTo(0,0)}
+letters.innerHTML=L.map(([a,b])=>`<div onclick="say('${a}','${b}')">${a}<small>${b}</small></div>`).join('');
+function say(a,b){toast(a+' = '+b);try{const u=new SpeechSynthesisUtterance(a);u.lang='ml-IN';speechSynthesis.speak(u)}catch(e){}}
+function go(v){document.querySelectorAll('.view').forEach(x=>x.classList.toggle('on',x.id=='v-'+v));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v==v));scrollTo(0,0)}
 let tt;function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2200)}
-render();
-if('serviceWorker' in navigator && location.hostname.endsWith('github.io')){navigator.serviceWorker.register('sw.js').then(r=>{r.update();r.onupdatefound=()=>{const w=r.installing;w.onstatechange=()=>{if(w.state==='installed'&&navigator.serviceWorker.controller){toast('🔄 പുതിയ അപ്ഡേറ്റ് · Updating…');setTimeout(()=>location.reload(),1500)}}}}).catch(()=>{})}
+render();vids();subsR();
+if('serviceWorker' in navigator&&location.hostname.endsWith('github.io')){navigator.serviceWorker.register('sw.js').then(r=>{r.update();r.onupdatefound=()=>{const w=r.installing;w.onstatechange=()=>{if(w.state==='installed'&&navigator.serviceWorker.controller){toast('Updating to the latest version…');setTimeout(()=>location.reload(),1500)}}}}).catch(()=>{})}
 </script>
 </body>
 </html>
