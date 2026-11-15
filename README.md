@@ -8,9 +8,7 @@ Online tuition app: 8th–10th tuition + Spoken Malayalam for kids in India & th
 
 Every push to `main` updates the app automatically — the installed app picks up the new version the next time it opens.
 
-## One-time setup (owner)
-1. Settings → General → Danger Zone → **Change visibility → Public** (free GitHub Pages needs a public repo).
-2. Settings → **Pages** → Source: **GitHub Actions**.
-3. Actions tab → "Deploy app" → **Run workflow**.
+## Hosting
+Served by GitHub Pages from the `gh-pages` branch. Update by pushing `main` to `gh-pages`.
 
 App link: https://shanirmangattayil-cmd.github.io/zanha-tuition/
