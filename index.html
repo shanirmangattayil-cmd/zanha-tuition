@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#132c55">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -119,6 +119,48 @@ nav button.on{color:var(--navy);font-weight:600}
 .hdr{position:relative}
 .hdr:after{content:"";position:absolute;left:20px;right:20px;bottom:-6px;height:1px;background:linear-gradient(90deg,transparent,rgba(184,147,62,.45),transparent)}
 nav{background:rgba(255,255,255,.8)}
+
+/* ---- Deep navy full-background theme ---- */
+body{background:#0a1830}
+.app{background:#10264a;color:#fff}
+.app:before{background:
+  radial-gradient(60% 32% at 88% 2%,rgba(217,191,127,.28),transparent 70%),
+  radial-gradient(60% 30% at 0% 26%,rgba(80,130,210,.30),transparent 70%),
+  radial-gradient(70% 30% at 100% 62%,rgba(217,191,127,.16),transparent 70%),
+  radial-gradient(60% 30% at 0% 92%,rgba(80,130,210,.22),transparent 70%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='430' height='900' viewBox='0 0 430 900'%3E%3Cg fill='none' stroke-width='1.1'%3E%3Cpath d='M-20 470 C 90 420 170 540 270 480 S 400 420 460 490' stroke='%23d9bf7f' stroke-opacity='.35'/%3E%3Cpath d='M-20 505 C 100 465 170 575 280 510 S 410 465 460 525' stroke='%23ffffff' stroke-opacity='.08'/%3E%3Cpath d='M-20 720 C 80 670 160 790 260 730 S 400 670 460 740' stroke='%23ffffff' stroke-opacity='.08'/%3E%3Cpath d='M-20 760 C 90 720 180 830 280 765 S 410 720 460 780' stroke='%23d9bf7f' stroke-opacity='.3'/%3E%3Ccircle cx='380' cy='640' r='70' stroke='%23d9bf7f' stroke-opacity='.12'/%3E%3Ccircle cx='380' cy='640' r='110' stroke='%23ffffff' stroke-opacity='.05'/%3E%3C/g%3E%3C/svg%3E") center top/100% auto no-repeat,
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23ffffff' fill-opacity='.07'/%3E%3C/svg%3E"),
+  linear-gradient(180deg,#132c55 0%,#0f2347 55%,#0b1a36 100%)}
+.brand,.profile h1,.sec-h h2,.hdr h1,.q{color:#fff}
+.brand span,.profile .role b,.sec-h a,.type{color:#e3c983}
+.profile .role{color:#b8c4da}
+.avatar{background:linear-gradient(140deg,#f3e2b0,#c9a24f)}.avatar img{border-color:#13294b}
+.facts{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12)}.facts div+div{border-color:rgba(255,255,255,.12)}
+.facts b{color:#fff}.facts span{color:#a9b6cd}
+.btn{background:linear-gradient(135deg,#f0dca4,#c9a24f);color:#10264a;font-weight:600;box-shadow:0 10px 22px rgba(0,0,0,.25)}
+.btn.ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.18);font-weight:500}
+.next{background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid rgba(227,201,131,.35);box-shadow:0 16px 34px rgba(0,0,0,.25);backdrop-filter:blur(10px)}
+.next .btn{background:linear-gradient(135deg,#f0dca4,#c9a24f);color:#10264a}
+.q .ic{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14);color:#e3c983;box-shadow:none}
+.chip:not(.on):not(.main){background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);color:#e6ecf5}
+.chip.on{background:linear-gradient(135deg,#f0dca4,#c9a24f);border-color:transparent;color:#10264a;font-weight:600}
+.chip.main{background:rgba(227,201,131,.18);border-color:rgba(227,201,131,.45);color:#f0dca4}
+.card:not(.next){background:#fff;color:var(--ink);border:0;box-shadow:0 12px 30px rgba(0,0,0,.22)}
+.card:not(.next) .btn.ghost{background:#f4f3ef;color:var(--ink);border-color:var(--line)}
+.card input,.card select.f{background:#fff;border-color:var(--line);color:var(--ink)}
+.sec>input,.sec>label,.sec>input[type=file]{color:#e6ecf5}
+#q,.sec>input[type=file]{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);color:#fff}
+#q::placeholder{color:#a9b6cd}
+.sec>label,.muted{color:#a9b6cd}
+.card .muted,.card label{color:var(--m)}
+select.tz{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#fff}select.tz option{color:#000}
+.letters div{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14);color:#fff}.letters small{color:#a9b6cd}
+.hdr img{border:2px solid #e3c983}
+nav{background:rgba(11,26,54,.86);border-top-color:rgba(255,255,255,.08)}
+nav button{color:#7f8fab}nav button.on{color:#e3c983}
+.toast{background:#f0dca4;color:#10264a;font-weight:600}
+.w1,.w3{stroke:#e3c983}.orb{stroke:#e3c983}.orb2{stroke:#ffffff;stroke-opacity:.12}
+meta{}
 </style>
 </head>
 <body>
@@ -152,7 +194,7 @@ nav{background:rgba(255,255,255,.8)}
  <div class="profile">
   <div class="avatar"><img src="zanha.jpg" alt="Zanha Zakhariya"></div>
   <h1>Zanha Zakhariya</h1>
-  <div class="role"><b>Science</b> · Class 8 – 10 · Online</div>
+  <div class="role"><b>Science Tutor</b> · Class 8 – 10 · Online</div>
   <div class="actions">
    <a class="btn" href="https://wa.me/918714499392?text=Hi%20Zanha%20teacher%2C%20I%20want%20to%20know%20about%20tuition"><svg class="i" data-i="chat"></svg>WhatsApp</a>
    <button class="btn ghost" onclick="go('join')"><svg class="i" data-i="cal"></svg>Book a class</button>
