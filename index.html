@@ -302,6 +302,21 @@ meta{}
   <div class="sec-h"><h2>മലയാളം അക്ഷരം</h2><span class="type">Tap to hear</span></div>
   <div class="letters" id="letters"></div>
  </div>
+<div class="sec" id="bakSec">
+  <div class="sec-h"><h2>ബാക്കപ്പ് · Backup</h2><span class="type">Teacher</span></div>
+  <div class="card">
+   <p style="font-size:13px;color:var(--m)">ആപ്പിലെ എല്ലാ വിവരങ്ങളും ഒരു ബാക്കപ്പ് ഫയലായി എടുക്കാം. ഫോൺ മാറിയാലോ ആപ്പ് റീഇൻസ്റ്റാൾ ചെയ്താലോ ഈ ഫയൽ ഉപയോഗിച്ച് എല്ലാം തിരികെ കൊണ്ടുവരാം.</p>
+   <p style="font-size:12px;color:var(--m);margin-top:6px" id="bakLast"></p>
+   <button class="btn" style="width:100%;margin-top:12px" onclick="bakSave()"><svg class="i" data-i="down"></svg>ബാക്കപ്പ് എടുക്കുക</button>
+   <button class="btn ghost" style="width:100%;margin-top:8px" onclick="bakWa()">WhatsApp-ലേക്ക് ബാക്കപ്പ് അയക്കുക</button>
+   <button class="btn ghost" style="width:100%;margin-top:8px" onclick="bakFile.click()">ബാക്കപ്പിൽ നിന്ന് തിരികെ എടുക്കുക (Restore)</button>
+   <input type="file" id="bakFile" accept=".json,application/json,text/plain,*/*" style="display:none" onchange="bakLoad(this)">
+   <details style="margin-top:10px"><summary style="font-size:12px;color:var(--m);cursor:pointer">WhatsApp-ൽ അയച്ച ബാക്കപ്പ് ടെക്സ്റ്റ് paste ചെയ്ത് Restore ചെയ്യാൻ</summary>
+    <textarea id="bakTxt" rows="4" style="width:100%;margin-top:8px;border-radius:12px;border:1px solid var(--line);padding:10px;font:inherit;font-size:12px" placeholder="ബാക്കപ്പ് ടെക്സ്റ്റ് ഇവിടെ paste ചെയ്യുക"></textarea>
+    <button class="btn ghost" style="width:100%;margin-top:8px" onclick="bakApply(bakTxt.value)">Restore</button>
+   </details>
+  </div>
+ </div>
 </section>
 
 <!-- HOMEWORK -->
@@ -415,6 +430,29 @@ function subsR(){const o=[...SUB].sort((a,b)=>b.m-a.m);
 function addSub(){const n=newSub.value.trim();if(!n)return;if(SUB.some(x=>x.n.toLowerCase()==n.toLowerCase())){toast('Already added');return}SUB.push({n,m:newMain.checked?1:0});newSub.value='';saveSub();toast(n+' added')}
 function togSub(n){const x=SUB.find(x=>x.n==n);x.m=x.m?0:1;saveSub()}
 function delSub(n){if(SUB.length<2)return;SUB=SUB.filter(x=>x.n!=n);saveSub()}
+// Backup & Restore (all saved app data = localStorage keys starting with "z")
+function bakObj(){const d={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k[0]=='z'&&k!='zBakLast')d[k]=localStorage.getItem(k)}if(!d.zSubs)d.zSubs=JSON.stringify(SUB);return{app:'Zanha Tuition',v:1,date:new Date().toISOString(),data:d}}
+function bakName(){const t=new Date(),p=n=>String(n).padStart(2,'0');return`Zanha-Backup-${t.getFullYear()}-${p(t.getMonth()+1)}-${p(t.getDate())}_${p(t.getHours())}${p(t.getMinutes())}.json`}
+function bakMark(){try{localStorage.setItem('zBakLast',new Date().toISOString())}catch(e){}bakShow()}
+function bakShow(){let l;try{l=localStorage.getItem('zBakLast')}catch(e){}bakLast.textContent=l?'അവസാന ബാക്കപ്പ്: '+new Date(l).toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short'}):'ഇതുവരെ ബാക്കപ്പ് എടുത്തിട്ടില്ല'}
+async function bakSave(){const s=JSON.stringify(bakObj(),null,1),name=bakName();
+ const C=window.Capacitor,P=C&&C.Plugins||{};
+ try{if(C&&C.isNativePlatform&&C.isNativePlatform()&&P.Filesystem){
+   try{await P.Filesystem.writeFile({path:'ZanhaTuition/'+name,data:s,directory:'DOCUMENTS',encoding:'utf8',recursive:true})}catch(e){}
+   const w=await P.Filesystem.writeFile({path:name,data:s,directory:'CACHE',encoding:'utf8'});
+   if(P.Share){await P.Share.share({title:'Zanha Tuition Backup',text:name,url:w.uri,dialogTitle:'ബാക്കപ്പ് എവിടെ സൂക്ഷിക്കണം? (Drive / WhatsApp)'})}
+   bakMark();toast('ബാക്കപ്പ് റെഡി');return}}catch(e){if(String(e).match(/cancel/i)){bakMark();return}}
+ try{const f=new File([s],name,{type:'application/json'});if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:'Zanha Tuition Backup'});bakMark();toast('ബാക്കപ്പ് റെഡി');return}}catch(e){if(e&&e.name=='AbortError')return}
+ try{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([s],{type:'application/json'}));a.download=name;document.body.appendChild(a);a.click();a.remove();bakMark();toast('ബാക്കപ്പ് ഫയൽ ഡൗൺലോഡ് ആയി');return}catch(e){}
+ bakWa()}
+function bakWa(){const s=JSON.stringify(bakObj());try{navigator.clipboard&&navigator.clipboard.writeText(s)}catch(e){}bakMark();location.href='https://wa.me/?text='+encodeURIComponent('Zanha Tuition Backup\n'+s)}
+function bakLoad(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=()=>bakApply(r.result);r.readAsText(f);inp.value=''}
+function bakApply(t){let o;try{t=String(t||'');const i=t.indexOf('{');o=JSON.parse(t.slice(i))}catch(e){toast('ഇത് ശരിയായ ബാക്കപ്പ് ഫയൽ അല്ല');return}
+ if(!o||o.app!='Zanha Tuition'||!o.data){toast('ഇത് Zanha Tuition ബാക്കപ്പ് അല്ല');return}
+ if(!confirm('ഈ ബാക്കപ്പിലെ ('+new Date(o.date).toLocaleString('en-IN')+') വിവരങ്ങൾ ഇപ്പോഴത്തെ ഡാറ്റയ്ക്ക് പകരം വെക്കട്ടെ?'))return;
+ try{Object.keys(o.data).forEach(k=>{if(k[0]=='z')localStorage.setItem(k,o.data[k])})}catch(e){toast('Restore ചെയ്യാൻ പറ്റിയില്ല');return}
+ toast('Restore ആയി ✓');setTimeout(()=>location.reload(),900)}
+bakShow();
 // Letters
 const L=[['അ','a'],['ആ','aa'],['ഇ','i'],['ഈ','ee'],['ഉ','u'],['ഊ','oo'],['എ','e'],['ഏ','ae'],['ഐ','ai'],['ഒ','o'],['ഓ','oa'],['ഔ','au'],['ക','ka'],['ഖ','kha'],['ഗ','ga'],['ച','cha'],['ട','ta'],['ത','tha'],['പ','pa'],['മ','ma'],['യ','ya'],['ര','ra'],['ല','la'],['വ','va']];
 letters.innerHTML=L.map(([a,b])=>`<div onclick="say('${a}','${b}')">${a}<small>${b}</small></div>`).join('');
