@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#5b3cc4">
+<meta name="theme-color" content="#0b7a55">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -28,7 +28,7 @@ header .row{display:flex;justify-content:space-between;align-items:center;positi
 select.tz{background:rgba(255,255,255,.18);backdrop-filter:blur(8px);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:7px 10px;font:inherit;font-size:12px}
 select.tz option{color:#000}
 .hero{text-align:center;margin-top:16px;position:relative;z-index:2}
-.ring{width:150px;height:150px;margin:0 auto;border-radius:50%;padding:5px;background:conic-gradient(var(--gold),var(--pk),#5ee7ff,var(--gold));animation:spin 6s linear infinite;box-shadow:0 12px 34px rgba(30,0,80,.45)}
+.ringx{width:150px;height:150px;margin:0 auto;border-radius:50%;padding:5px;background:conic-gradient(var(--gold),var(--pk),#5ee7ff,var(--gold));animation:spin 6s linear infinite;box-shadow:0 12px 34px rgba(30,0,80,.45)}
 .ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:4px solid #fff;animation:spin 6s linear infinite reverse}
 @keyframes spin{to{transform:rotate(360deg)}}
 .badge{display:inline-flex;align-items:center;gap:5px;background:#fff;color:var(--p);font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-top:-14px;position:relative;box-shadow:0 4px 12px rgba(0,0,0,.15)}
@@ -90,43 +90,57 @@ nav button .ic{font-size:20px}nav button.on{color:var(--p);font-weight:700;backg
 .mbox{background:#fff;border-radius:22px;overflow:hidden;width:100%;max-width:400px}.mbox video{width:100%;background:#000;display:block}
 .k1{background:#e6f0ff;color:#2a62d6}.k2{background:#fff1e0;color:var(--o)}
 .app.sub .hero .tag,.app.sub .stats,.app.sub .hero .btn.wa,.app.sub .hero p,.app.sub .badge,.app.sub .deco{display:none}
-.app.sub .ring{width:84px;height:84px}.app.sub .hero h1{font-size:20px}.app.sub header{padding-bottom:56px}
+.app.sub .ringx{width:84px;height:84px}.app.sub .hero h1{font-size:20px}.app.sub header{padding-bottom:56px}
 
-/* ---- Premium profile ---- */
-header{background:#140c2e;padding:14px 18px 70px;border-radius:0 0 36px 36px;min-height:600px}
-header:before,header:after,.deco{display:none}
-.cover{position:absolute;inset:0;background:url('zanha-full.jpg') center 18%/cover;transition:.4s}
-.cover:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,12,46,.55) 0%,rgba(20,12,46,0) 22%,rgba(20,12,46,.1) 40%,rgba(28,14,70,.86) 62%,#1a0f3d 80%),radial-gradient(120% 60% at 50% 100%,rgba(176,78,245,.45),transparent 70%)}
+/* ---- Premium green education theme ---- */
+:root{--p:#0e8a5f;--p2:#18b67e;--pk:#5fd3a5;--gold:#d8b25a;--bg:#f3faf6;--t:#0f2a20;--m:#5d7a6d}
+body{background:#e3f1ea}
+header{background:linear-gradient(160deg,#064e3b 0%,#0b7a55 55%,#14a374 100%);padding:14px 18px 70px;border-radius:0 0 36px 36px}
+header:before{display:block;width:260px;height:260px;background:radial-gradient(circle,rgba(255,255,255,.35),transparent 70%);top:-110px;right:-90px;opacity:.5}
+header:after{display:block;width:220px;height:220px;background:radial-gradient(circle,rgba(216,178,90,.45),transparent 70%);bottom:-90px;left:-70px;opacity:.5}
+.deco{display:block;opacity:.16}
+.pattern{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1.2px,transparent 1.2px);background-size:18px 18px;mask-image:linear-gradient(180deg,#000,transparent 85%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%)}
 .brand{display:flex;align-items:center;gap:9px;font-family:'Playfair Display',serif;font-size:19px}
-.brand small{font-family:Poppins,sans-serif;letter-spacing:2px;text-transform:uppercase;font-size:9px;opacity:.8}
-.logo{width:34px;height:34px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#1a0f3d;background:linear-gradient(135deg,#ffe29a,#d9a441);box-shadow:0 4px 14px rgba(217,164,65,.5)}
-.hero{margin-top:250px}
-.mini{display:none}
-.gold-badge{display:inline-block;font-size:10px;letter-spacing:1.6px;font-weight:600;padding:6px 14px;border-radius:30px;color:#2a1a00;background:linear-gradient(135deg,#fff1c4,#e7b85a 50%,#c48a2c);box-shadow:0 6px 18px rgba(231,184,90,.45)}
-.hero h1{font-family:'Playfair Display',serif;font-size:36px;letter-spacing:.3px;margin-top:10px;background:linear-gradient(180deg,#fff,#f3dcff);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none}
-.stars{color:#ffd36b;font-size:15px;letter-spacing:2px;margin-top:2px}.stars span{display:block;color:#e8defc;font-size:11px;letter-spacing:0}
-.quote{font-family:'Playfair Display',serif;font-style:italic;font-size:14px!important;opacity:.9;margin-top:8px}
-.chips{margin-top:10px}.chips span{display:inline-block;font-size:11px;margin:3px;padding:5px 12px;border-radius:20px;background:rgba(255,255,255,.1);border:1px solid rgba(255,226,154,.45);color:#fff}
-.chips span:first-child{background:linear-gradient(135deg,rgba(255,226,154,.3),rgba(217,164,65,.2));font-weight:600}
-.stats div{background:rgba(255,255,255,.07);border:1px solid rgba(255,226,154,.3)}
-.stats b{color:#ffe29a}
+.brand small{font-family:Poppins,sans-serif;letter-spacing:2px;text-transform:uppercase;font-size:9px;opacity:.85}
+.logo{width:34px;height:34px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0b5b40;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.hero{margin-top:18px}
+.mini{width:146px;height:146px;margin:0 auto;border-radius:50%;padding:4px;background:linear-gradient(135deg,#f4e3b0,#d8b25a 50%,#fff);box-shadow:0 0 0 8px rgba(255,255,255,.12),0 16px 36px rgba(0,40,25,.45)}
+.mini img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:4px solid #fff}
+.gold-badge{display:inline-block;font-size:10px;letter-spacing:1.5px;font-weight:600;padding:6px 14px;border-radius:30px;margin-top:-12px;position:relative;color:#0b5b40;background:#fff;box-shadow:0 6px 16px rgba(0,0,0,.18)}
+.hero h1{font-family:'Playfair Display',serif;font-size:33px;margin-top:10px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.18)}
+.stars{color:#f4d27a;font-size:14px;letter-spacing:2px}.stars span{display:block;color:#d6f5e7;font-size:11px;letter-spacing:0}
+.quote{font-family:'Playfair Display',serif;font-style:italic;font-size:14px!important;opacity:.92;margin-top:8px}
+.chips{margin-top:10px}.chips span{display:inline-block;font-size:11px;margin:3px;padding:5px 12px;border-radius:20px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);color:#fff}
+.chips span:first-child{background:#fff;color:#0b5b40;font-weight:600}
+.stats div{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3)}
 .cta{display:flex;gap:10px;justify-content:center;margin-top:16px}
 .cta .btn{width:auto;display:inline-flex;margin:0;padding:12px 20px;font-size:13px}
-.btn.goldb{background:linear-gradient(135deg,#fff1c4,#e7b85a 55%,#c48a2c);color:#2a1a00;box-shadow:0 8px 22px rgba(231,184,90,.4)}
-.phone{font-size:11px!important;opacity:.75;margin-top:8px}
-/* compact header on inner pages */
-.app.sub header{min-height:0;padding-bottom:60px}
-.app.sub .cover{opacity:0}.app.sub header{background:linear-gradient(150deg,#1a0f3d,#3d1f8a 60%,#6a3df0)}
-.app.sub .hero{margin-top:14px}.app.sub .mini{display:block;width:78px;height:78px;margin:0 auto;border-radius:50%;padding:3px;background:linear-gradient(135deg,#ffe29a,#c48a2c)}
-.app.sub .mini img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid #1a0f3d}
-.app.sub .gold-badge,.app.sub .stars,.app.sub .quote,.app.sub .chips,.app.sub .stats,.app.sub .cta,.app.sub .phone{display:none}
+.btn.goldb{background:#fff;color:#0b5b40;box-shadow:0 8px 22px rgba(0,0,0,.18)}
+.phone{font-size:11px!important;opacity:.8;margin-top:8px}
+.btn{background:linear-gradient(135deg,#0b7a55,#18b67e);box-shadow:0 8px 20px rgba(14,138,95,.28)}
+.btn.lite{background:#e3f5ec;color:#0b7a55;box-shadow:none}
+.next{background:linear-gradient(135deg,#052e22,#0b5b40 60%,#0e8a5f)}
+.tile:nth-child(1){background:linear-gradient(135deg,#0b7a55,#18b67e)}.tile:nth-child(2){background:linear-gradient(135deg,#0f766e,#2dd4bf)}
+.tile:nth-child(3){background:linear-gradient(135deg,#3f8f3a,#8bd46b)}.tile:nth-child(4){background:linear-gradient(135deg,#b8892d,#e3c26d)}
+.day{background:#e9f6ef}.day.on{background:linear-gradient(135deg,#0b7a55,#18b67e);box-shadow:0 6px 14px rgba(14,138,95,.3)}
+.tag{background:#e3f5ec;color:#0b7a55}
+nav button.on{color:#0b7a55;background:#e3f5ec}
+.letters div{background:linear-gradient(135deg,#ecf8f2,#f7fbe9);color:#0b7a55}
+.card{box-shadow:0 10px 30px rgba(10,90,60,.09)}
+input:focus,select.f:focus{border-color:#18b67e}
+input,select.f{border-color:#d3eadf;background:#fbfefc}
+.vcard .th{background-color:#0b7a55}
+.app.sub header{padding-bottom:60px}
+.app.sub .mini{width:80px;height:80px;padding:3px;box-shadow:0 8px 20px rgba(0,40,25,.4)}
+.app.sub .gold-badge,.app.sub .stars,.app.sub .quote,.app.sub .chips,.app.sub .stats,.app.sub .cta,.app.sub .phone,.app.sub .deco{display:none}
 .app.sub .hero h1{font-size:22px;margin-top:6px}
 </style>
 </head>
 <body>
 <div class="app">
 <header>
- <div class="cover"></div>
+ <div class="pattern"></div>
+ <div class="deco"><span style="left:7%;top:24%">🔬</span><span style="right:9%;top:30%;animation-delay:1s">🧪</span><span style="left:10%;top:52%;animation-delay:2s">⚛️</span><span style="right:12%;top:56%;animation-delay:3s">🌿</span></div>
  <div class="row">
   <div class="brand"><span class="logo">Z</span><div>Zanha<small>Online Tuition</small></div></div>
   <select class="tz" id="tz" onchange="render()">
@@ -139,13 +153,13 @@ header:before,header:after,.deco{display:none}
  </div>
  <div class="hero">
   <div class="mini"><img src="zanha.jpg" alt=""></div>
-  <div class="gold-badge">✦ SCIENCE SPECIALIST · 8th – 10th ✦</div>
+  <div class="gold-badge">✦ SCIENCE SPECIALIST · 8th – 10th</div>
   <h1>Zanha Zakhariya</h1>
   <div class="stars">★★★★★ <span>Trusted by parents in India & the Gulf</span></div>
   <p class="quote">“Science made simple, one concept at a time.”</p>
   <div class="chips"><span>🔬 Science</span><span>📗 English</span><span>📙 മലയാളം</span></div>
   <div class="stats"><div><b>👤 · 👥</b><span>Single & Group</span></div><div><b id="subCount">3</b><span>Subjects</span></div><div><b>🇮🇳🇦🇪🇸🇦🇶🇦</b><span>Countries</span></div></div>
-  <div class="cta"><a class="btn wa" href="https://wa.me/918714499392?text=Hi%20Zanha%20teacher%2C%20I%20want%20to%20know%20about%20tuition">💬 WhatsApp</a><a class="btn goldb" onclick="go('join')">✦ Book a Class</a></div>
+  <div class="cta"><a class="btn wa" href="https://wa.me/918714499392?text=Hi%20Zanha%20teacher%2C%20I%20want%20to%20know%20about%20tuition">💬 WhatsApp</a><a class="btn goldb" onclick="go('join')">📅 Book a Class</a></div>
   <p class="phone">📞 +91 87144 99392</p>
  </div>
 </header>
@@ -314,7 +328,7 @@ const DEF=[{n:'Science',m:1,d:'8th – 10th · Physics, Chemistry, Biology'},{n:
 let SUB;try{SUB=JSON.parse(localStorage.getItem('zSubs'))||DEF}catch(e){SUB=DEF}
 function saveSub(){try{localStorage.setItem('zSubs',JSON.stringify(SUB))}catch(e){}subs()}
 function subs(){const o=[...SUB].sort((a,b)=>b.m-a.m);
- document.getElementById('subChips').innerHTML=o.map(x=>`<span class="tag" style="${x.m?'background:linear-gradient(135deg,#6a3df0,#b04ef5);color:#fff;font-weight:600':''}">${x.m?'⭐ ':''}${x.n}</span>`).join('');
+ document.getElementById('subChips').innerHTML=o.map(x=>`<span class="tag" style="${x.m?'background:linear-gradient(135deg,#0b7a55,#18b67e);color:#fff;font-weight:600':''}">${x.m?'⭐ ':''}${x.n}</span>`).join('');
  document.getElementById('subList').innerHTML=o.map(x=>`<div class="li"><div><b>${x.m?'⭐ ':''}${x.n}</b><p>${x.d||(x.m?'Main subject':'Secondary')}</p></div><span class="pill ${x.m?'ok':'pen'}" style="cursor:pointer" onclick="togSub('${x.n}')">${x.m?'Main':'Secondary'}</span><span style="cursor:pointer;color:var(--r);font-size:16px" onclick="delSub('${x.n}')">✕</span></div>`).join('');
  document.querySelectorAll('.subSel').forEach(sl=>sl.innerHTML=o.map(x=>`<option>${x.n}</option>`).join(''));
  document.getElementById('subCount').textContent=SUB.length}
